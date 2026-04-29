@@ -3236,6 +3236,8 @@
       document.getElementById('drawer').classList.remove('open');
       document.getElementById('drawer-overlay').classList.remove('open');
       currentLeadId = null;
+      renderGrid();
+      updateStats();
     }
     function switchTab(name, el) {
       document.querySelectorAll('.drawer-tab').forEach(t => t.classList.remove('active'));
