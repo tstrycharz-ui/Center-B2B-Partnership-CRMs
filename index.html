@@ -3566,6 +3566,8 @@
       localStorage.setItem(SK2, JSON.stringify(OVERRIDES.status));
       postStateToServer(id, { status: val });
       updateStats();
+      renderGrid();
+      if(document.getElementById('page-progress')?.classList.contains('active')) renderPipeline();
     }
     function updateScore(id, key, val, el, isRevenue) {
       if (!OVERRIDES.scores[id]) { const l = getLead(id); OVERRIDES.scores[id] = { ...l.score }; }
