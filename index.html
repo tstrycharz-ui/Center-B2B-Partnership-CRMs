@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pete & Mac's Avondale — Partnership CRM</title>
+  <title>Partnership CRM</title>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
     rel="stylesheet">
@@ -2194,8 +2194,8 @@
     <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
       <div class="sidebar-logo">
-        <h1>Pete & Mac's<br>Avondale</h1>
-        <p>13034 W Rancho Santa Fe Blvd · Partnership CRM</p>
+        <h1 id="sidebar-brand-name">Pete & Mac's Avondale</h1>
+        <p id="sidebar-brand-address">13034 W Rancho Santa Fe Blvd · Partnership CRM</p>
       </div>
 
       <div class="sidebar-section">
@@ -2375,7 +2375,7 @@
           <div class="page-header-row">
             <div>
               <div class="page-title">Partnership Leads</div>
-              <div class="page-subtitle">Avondale, AZ · All partner types</div>
+              <div class="page-subtitle" id="leads-subtitle">Avondale, AZ · All partner types</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
               <button class="btn-primary" onclick="openAddLead()" style="font-size:12px;padding:7px 14px;">+ Add
@@ -2614,12 +2614,13 @@
     /* ── APPS SCRIPT BACKEND ── */
     // Paste your deployed Apps Script web app URL here after deploying.
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_5WuI-9srIqbQLRqmQtMY7kg8K-jIzw7pj4oCUP7Ma8D0lgkB49donMMNlR5uBEvlWg/exec';
+    const CENTER_ID = new URLSearchParams(window.location.search).get('center') || '232';
 
     /* ── STORAGE KEYS ── */
-    const SK = 'pma_scores_v1';
-    const SK2 = 'pma_status_v1';
-    const PK = 'pma_prep_v1';
-    const NK = 'pma_notes_v1';
+    const SK = 'crm_scores_' + CENTER_ID + '_v1';
+    const SK2 = 'crm_status_' + CENTER_ID + '_v1';
+    const PK = 'crm_prep_' + CENTER_ID + '_v1';
+    const NK = 'crm_notes_' + CENTER_ID + '_v1';
 
     /* ── STATE ── */
     let OVERRIDES = {
@@ -2721,7 +2722,7 @@
       { id: 'misc-04', name: 'Luke Air Force Base', type: 'misc', category: 'Military Installation — Community Partner', tier: 2, location: 'Glendale, AZ 85309', address: 'Luke AFB, AZ', phone: '', email: '', website: 'https://lukeafb.af.mil', rating: 0, reviews: 0, dist: '~8 mi', ownership: 'U.S. Government', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing community partnership per Krystle. Military families relocate frequently — high boarding demand during deployments and moves. Pet-friendly base.', tags: ['Active Partner', 'Military', 'High Volume'], status: 'partner', score: { proximity: 5, overlap: 8, reputation: 9, volumePotential: 9 } },
     ];
 
-    let LEADS = SEED_LEADS;
+    let LEADS = CENTER_ID === '232' ? SEED_LEADS : [];
 
     /* ── STORAGE HELPERS ── */
     function getStatus(lead) { return OVERRIDES.status[lead.id] || lead.status || 'not-started'; }
@@ -2755,7 +2756,7 @@
     function postStateToServer(lead_id, patch) {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
       try {
-        const payload = btoa(unescape(encodeURIComponent(JSON.stringify(Object.assign({ lead_id }, patch)))));
+        const payload = btoa(unescape(encodeURIComponent(JSON.stringify(Object.assign({ lead_id, center_id: CENTER_ID }, patch)))));
         fetch(APPS_SCRIPT_URL + '?action=write&data=' + encodeURIComponent(payload));
       } catch (e) { }
     }
@@ -2763,7 +2764,7 @@
     async function syncStateFromServer() {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
       try {
-        const res = await fetch(APPS_SCRIPT_URL + '?action=state');
+        const res = await fetch(APPS_SCRIPT_URL + '?action=state&center=' + CENTER_ID);
         if (!res.ok) return;
         const json = await res.json();
         if (!json.ok || !Array.isArray(json.data)) return;
@@ -2810,6 +2811,37 @@
       } catch (e) { setDataStatus(false); }
       renderGrid();
       updateStats();
+    }
+
+    /* ── LOAD LEADS FROM SHEET (non-Avondale centers) ── */
+    async function loadLeadsFromServer() {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+      try {
+        const res = await fetch(APPS_SCRIPT_URL + '?action=leads&center=' + CENTER_ID);
+        if (!res.ok) return;
+        const json = await res.json();
+        if (!json.ok || !Array.isArray(json.data)) return;
+        json.data.forEach(l => { LEADS.push(l); SEED_LEADS.push(l); });
+      } catch (e) { }
+    }
+
+    /* ── LOAD CENTER DISPLAY INFO ── */
+    async function loadCenterInfo() {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+      try {
+        const res = await fetch(APPS_SCRIPT_URL + '?action=center_info&center=' + CENTER_ID);
+        if (!res.ok) return;
+        const json = await res.json();
+        if (!json.ok || !json.data) return;
+        const info = json.data;
+        document.title = info.display_name + ' — Partnership CRM';
+        const bn = document.getElementById('sidebar-brand-name');
+        if (bn) bn.textContent = info.display_name;
+        const sub = document.getElementById('leads-subtitle');
+        if (sub && info.city && info.state) sub.textContent = info.city + ', ' + info.state + ' · All partner types';
+        const addr = document.getElementById('sidebar-brand-address');
+        if (addr && info.address) addr.textContent = info.address + ' · Partnership CRM';
+      } catch (e) { }
     }
 
     /* ── TYPE CONFIG ── */
@@ -3286,7 +3318,7 @@
     </div>`;
     }
 
-    const EDIT_NK = 'pma_edits_v1';
+    const EDIT_NK = 'crm_edits_' + CENTER_ID + '_v1';
     let LEAD_EDITS = JSON.parse(localStorage.getItem(EDIT_NK) || '{}');
 
     function renderDrawerEdit(lead) {
@@ -3751,7 +3783,7 @@
       LEADS.push(newLead);
       SEED_LEADS.push(newLead);
       updateStats(); renderGrid(); closeAddLead();
-      const customKey = 'pma_custom_leads_v1';
+      const customKey = 'crm_custom_' + CENTER_ID + '_v1';
       const existing = JSON.parse(localStorage.getItem(customKey) || '[]');
       existing.push(newLead);
       localStorage.setItem(customKey, JSON.stringify(existing));
@@ -3760,7 +3792,7 @@
 
     /* ── PAGE NAV ── */
     /* ── TRASH ── */
-    const TK = 'pma_trash_v1';
+    const TK = 'crm_trash_' + CENTER_ID + '_v1';
     let TRASH = JSON.parse(localStorage.getItem(TK) || '[]');
 
     function removeLead(id) {
@@ -4265,14 +4297,19 @@
     }
 
     /* ── INIT ── */
-    (function () {
-      // Restore custom leads
-      const saved = JSON.parse(localStorage.getItem('pma_custom_leads_v1') || '[]');
+    (async function () {
+      // For non-Avondale centers, load leads from Sheet before anything renders
+      if (CENTER_ID !== '232') {
+        await loadLeadsFromServer();
+      }
+      // Restore custom leads (center-specific key)
+      const CL_KEY = 'crm_custom_' + CENTER_ID + '_v1';
+      const saved = JSON.parse(localStorage.getItem(CL_KEY) || '[]');
       saved.forEach(cl => {
         if (!LEADS.find(l => l.id === cl.id)) { LEADS.push(cl); SEED_LEADS.push(cl); }
       });
       // Restore field edits
-      const edits = JSON.parse(localStorage.getItem('pma_edits_v1') || '{}');
+      const edits = JSON.parse(localStorage.getItem(EDIT_NK) || '{}');
       Object.entries(edits).forEach(([id, patch]) => {
         const lead = LEADS.find(l => l.id === id);
         if (lead) Object.assign(lead, patch);
@@ -4287,10 +4324,11 @@
       for (let i = SEED_LEADS.length - 1; i >= 0; i--) {
         if (trashedIds.has(SEED_LEADS[i].id)) SEED_LEADS.splice(i, 1);
       }
+      loadCenterInfo(); // fire and forget — updates header text async
+      updateStats();
+      renderGrid();
+      syncStateFromServer(); // async — re-renders when server state arrives
     })();
-    updateStats();
-    renderGrid();
-    syncStateFromServer(); // async — re-renders when server state arrives
   </script>
 </body>
 
