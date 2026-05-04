@@ -2815,7 +2815,7 @@
       updateStats();
     }
 
-    /* ── LOAD LEADS FROM SHEET (non-Avondale centers) ── */
+    /* ── LOAD LEADS FROM SHEET (all centers) ── */
     async function loadLeadsFromServer() {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
       try {
@@ -2823,7 +2823,10 @@
         if (!res.ok) return;
         const json = await res.json();
         if (!json.ok || !Array.isArray(json.data)) return;
-        json.data.forEach(l => { LEADS.push(l); SEED_LEADS.push(l); });
+        json.data.forEach(l => {
+          if (!LEADS.find(x => x.id === l.id)) LEADS.push(l);
+          if (!SEED_LEADS.find(x => x.id === l.id)) SEED_LEADS.push(l);
+        });
       } catch (e) { }
     }
 
@@ -3777,31 +3780,7 @@
       const notes = document.getElementById('al-notes').value.trim();
       const location = CENTER_CITY && CENTER_STATE ? CENTER_CITY + ', ' + CENTER_STATE : '';
 
-      if (CENTER_ID === '232') {
-        // Avondale uses hardcoded SEED_LEADS — keep localStorage behavior
-        const uid = type + '-custom-' + Date.now();
-        const newLead = {
-          id: uid, name, type, category, tier: 2,
-          location: location || 'Avondale, AZ',
-          address, phone, email, website,
-          rating: 0, reviews: 0,
-          dist: distRaw || '—',
-          ownership: '', risk: '', overflow: '', referral: '', confidence: 'Manual entry',
-          notes, tags: ['Manually Added'], status: 'not-started',
-          score: { proximity: 5, overlap: 5, reputation: 5, volumePotential: 5 }
-        };
-        LEADS.push(newLead);
-        SEED_LEADS.push(newLead);
-        updateStats(); renderGrid(); closeAddLead();
-        const customKey = 'crm_custom_' + CENTER_ID + '_v1';
-        const existing = JSON.parse(localStorage.getItem(customKey) || '[]');
-        existing.push(newLead);
-        localStorage.setItem(customKey, JSON.stringify(existing));
-        postStateToServer(uid, { custom_lead_json: JSON.stringify(newLead), trashed: 'false' });
-        return;
-      }
-
-      // All other centers: write lead directly to Google Sheet (Sheet is source of truth)
+      // Write lead directly to Google Sheet (Sheet is source of truth for all centers)
       const btn = document.querySelector('button[onclick="submitAddLead()"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
       try {
@@ -4339,10 +4318,8 @@
 
     /* ── INIT ── */
     (async function () {
-      // For non-Avondale centers, load leads from Sheet before anything renders
-      if (CENTER_ID !== '232') {
-        await loadLeadsFromServer();
-      }
+      // Load Sheet leads for all centers (deduplicates against any hardcoded SEED_LEADS)
+      await loadLeadsFromServer();
       // Restore custom leads (center-specific key)
       const CL_KEY = 'crm_custom_' + CENTER_ID + '_v1';
       const saved = JSON.parse(localStorage.getItem(CL_KEY) || '[]');
