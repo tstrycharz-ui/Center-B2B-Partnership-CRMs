@@ -2615,6 +2615,8 @@
     // Paste your deployed Apps Script web app URL here after deploying.
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_5WuI-9srIqbQLRqmQtMY7kg8K-jIzw7pj4oCUP7Ma8D0lgkB49donMMNlR5uBEvlWg/exec';
     const CENTER_ID = new URLSearchParams(window.location.search).get('center') || '232';
+    let CENTER_CITY = '';
+    let CENTER_STATE = '';
 
     /* ── STORAGE KEYS ── */
     const SK = 'crm_scores_' + CENTER_ID + '_v1';
@@ -2834,6 +2836,8 @@
         const json = await res.json();
         if (!json.ok || !json.data) return;
         const info = json.data;
+        CENTER_CITY = info.city || '';
+        CENTER_STATE = info.state || '';
         document.title = info.display_name + ' — Partnership CRM';
         const bn = document.getElementById('sidebar-brand-name');
         if (bn) bn.textContent = info.display_name;
@@ -3760,34 +3764,71 @@
       });
       const typeEl = document.getElementById('al-type'); if (typeEl) typeEl.value = 'misc';
     }
-    function submitAddLead() {
+    async function submitAddLead() {
       const name = document.getElementById('al-name').value.trim();
       if (!name) { document.getElementById('al-name').style.borderColor = 'var(--red)'; return; }
       const type = document.getElementById('al-type').value;
       const category = document.getElementById('al-category').value.trim() || 'Custom Lead';
-      const uid = type + '-custom-' + Date.now();
-      const newLead = {
-        id: uid, name, type, category, tier: 2,
-        location: 'Avondale, AZ',
-        address: document.getElementById('al-address').value.trim(),
-        phone: document.getElementById('al-phone').value.trim(),
-        email: document.getElementById('al-email').value.trim(),
-        website: document.getElementById('al-website').value.trim(),
-        rating: 0, reviews: 0,
-        dist: document.getElementById('al-dist').value.trim() || '—',
-        ownership: '', risk: '', overflow: '', referral: '', confidence: 'Manual entry',
-        notes: document.getElementById('al-notes').value.trim(),
-        tags: ['Manually Added'], status: 'not-started',
-        score: { proximity: 5, overlap: 5, reputation: 5, volumePotential: 5 }
-      };
-      LEADS.push(newLead);
-      SEED_LEADS.push(newLead);
-      updateStats(); renderGrid(); closeAddLead();
-      const customKey = 'crm_custom_' + CENTER_ID + '_v1';
-      const existing = JSON.parse(localStorage.getItem(customKey) || '[]');
-      existing.push(newLead);
-      localStorage.setItem(customKey, JSON.stringify(existing));
-      postStateToServer(uid, { custom_lead_json: JSON.stringify(newLead), trashed: 'false' });
+      const address = document.getElementById('al-address').value.trim();
+      const phone = document.getElementById('al-phone').value.trim();
+      const email = document.getElementById('al-email').value.trim();
+      const website = document.getElementById('al-website').value.trim();
+      const distRaw = document.getElementById('al-dist').value.trim();
+      const notes = document.getElementById('al-notes').value.trim();
+      const location = CENTER_CITY && CENTER_STATE ? CENTER_CITY + ', ' + CENTER_STATE : '';
+
+      if (CENTER_ID === '232') {
+        // Avondale uses hardcoded SEED_LEADS — keep localStorage behavior
+        const uid = type + '-custom-' + Date.now();
+        const newLead = {
+          id: uid, name, type, category, tier: 2,
+          location: location || 'Avondale, AZ',
+          address, phone, email, website,
+          rating: 0, reviews: 0,
+          dist: distRaw || '—',
+          ownership: '', risk: '', overflow: '', referral: '', confidence: 'Manual entry',
+          notes, tags: ['Manually Added'], status: 'not-started',
+          score: { proximity: 5, overlap: 5, reputation: 5, volumePotential: 5 }
+        };
+        LEADS.push(newLead);
+        SEED_LEADS.push(newLead);
+        updateStats(); renderGrid(); closeAddLead();
+        const customKey = 'crm_custom_' + CENTER_ID + '_v1';
+        const existing = JSON.parse(localStorage.getItem(customKey) || '[]');
+        existing.push(newLead);
+        localStorage.setItem(customKey, JSON.stringify(existing));
+        postStateToServer(uid, { custom_lead_json: JSON.stringify(newLead), trashed: 'false' });
+        return;
+      }
+
+      // All other centers: write lead directly to Google Sheet (Sheet is source of truth)
+      const btn = document.querySelector('button[onclick="submitAddLead()"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+      try {
+        const payload = { center_id: CENTER_ID, type, name, category, address, phone, email, website, dist: distRaw, notes, location };
+        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+        const res = await fetch(APPS_SCRIPT_URL + '?action=add_lead&center=' + CENTER_ID + '&data=' + encoded);
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || 'Failed to save lead');
+        const uid = type + '-sheet-' + CENTER_ID + '-' + json.rowNum;
+        const newLead = {
+          id: uid, name, type, category, tier: 2,
+          location,
+          address, phone, email, website,
+          rating: 0, reviews: 0,
+          dist: distRaw ? distRaw + ' mi' : '—',
+          ownership: '', risk: '', overflow: '', referral: '', confidence: 'Manual entry',
+          notes, tags: ['Manually Added'], status: 'not-started',
+          score: { proximity: 5, overlap: 5, reputation: 5, volumePotential: 5 }
+        };
+        LEADS.push(newLead);
+        SEED_LEADS.push(newLead);
+        updateStats(); renderGrid(); closeAddLead();
+      } catch (err) {
+        alert('Could not save lead: ' + err.message);
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = 'Add Lead'; }
+      }
     }
 
     /* ── PAGE NAV ── */
