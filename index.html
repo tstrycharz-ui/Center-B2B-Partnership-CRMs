@@ -3801,7 +3801,7 @@
           score: { proximity: 5, overlap: 5, reputation: 5, volumePotential: 5 }
         };
         LEADS.push(newLead);
-        SEED_LEADS.push(newLead);
+        if (LEADS !== SEED_LEADS) SEED_LEADS.push(newLead);
         updateStats(); renderGrid(); closeAddLead();
       } catch (err) {
         alert('Could not save lead: ' + err.message);
@@ -4324,7 +4324,7 @@
       const CL_KEY = 'crm_custom_' + CENTER_ID + '_v1';
       const saved = JSON.parse(localStorage.getItem(CL_KEY) || '[]');
       saved.forEach(cl => {
-        if (!LEADS.find(l => l.id === cl.id)) { LEADS.push(cl); SEED_LEADS.push(cl); }
+        if (!LEADS.find(l => l.id === cl.id)) { LEADS.push(cl); if (LEADS !== SEED_LEADS) SEED_LEADS.push(cl); }
       });
       // Restore field edits
       const edits = JSON.parse(localStorage.getItem(EDIT_NK) || '{}');
