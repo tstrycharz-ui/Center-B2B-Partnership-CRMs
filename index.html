@@ -2756,14 +2756,15 @@
     }
     function getScore(lead) {
       const base = OVERRIDES.scores[lead.id] || lead.score || {};
-      const _globalDefault = {};
+      const _globalDefault = { revenuePotential: true, clientOverlap: true, decisionIndependence: true };
       const _stored = (OVERRIDES.scores[lead.id] || {})._na;
       const naSet = _stored ? Object.assign({}, _globalDefault, _stored) : Object.assign({}, _globalDefault);
+      if (naSet.revenuePotential) return null;
       const s = Object.assign({}, base);
       const autoProx = calcProximityScore(lead);
       const autoRep = calcReputationScore(lead);
-      if (autoProx !== null) s.proximity = autoProx;
-      if (autoRep !== null) s.reputation = autoRep;
+      if (autoProx !== null && base.proximity == null) s.proximity = autoProx;
+      if (autoRep !== null && base.reputation == null) s.reputation = autoRep;
       const activeKeys = ALL_SCORE_KEYS.filter(k => !naSet[k] && s[k] != null);
       if (!activeKeys.length) return null;
       const sum = activeKeys.reduce((t, k) => t + (k === 'revenuePotential' ? (s[k] || 5) * 2 : (s[k] || 5)), 0);
@@ -3459,7 +3460,7 @@
 
     function renderDrawerScore(lead) {
       const base = OVERRIDES.scores[lead.id] || lead.score || {};
-      const _globalDefault = {};
+      const _globalDefault = { revenuePotential: true, clientOverlap: true, decisionIndependence: true };
       const _stored = (OVERRIDES.scores[lead.id] || {})._na;
       const naSet = _stored ? Object.assign({}, _globalDefault, _stored) : Object.assign({}, _globalDefault);
       const total = getScore(lead);
@@ -3467,41 +3468,31 @@
       const autoRep = calcReputationScore(lead);
       const allCriteria = [
         { key: 'revenuePotential', label: 'Revenue Potential', isAuto: false, desc: 'How much money could this partnership realistically bring in over time? Think about whether their clients spend a lot, use multiple services, and stick around — a partner who sends you one big spender is worth more than one who sends ten one-time visitors.' },
-        { key: 'proximity', label: 'Proximity', isAuto: true, autoVal: autoProx, desc: 'Auto-calculated from distance to Pete & Mac\'s. The closer they are, the more likely their clients are already in the neighborhood — less friction for them to walk through your door.' },
+        { key: 'proximity', label: 'Proximity', isAuto: true, autoVal: autoProx, desc: 'Auto-calculated from distance to the center. The closer they are, the more likely their clients are already in the neighborhood — less friction for them to walk through your door.' },
         { key: 'reputation', label: 'Reputation', isAuto: true, autoVal: autoRep, desc: 'Auto-calculated from Google rating and review count. A partner with great reviews sends clients who already have high standards and are more likely to take your recommendation seriously.' },
-        { key: 'clientOverlap', label: 'Existing Client Overlap', isAuto: false, desc: 'How many of their current clients are also Pete & Mac\'s clients? The more overlap, the less convincing it takes to get a referral to convert — they already know and trust you.' },
+        { key: 'clientOverlap', label: 'Existing Client Overlap', isAuto: false, desc: 'How many of their current clients are also our clients? The more overlap, the less convincing it takes to get a referral to convert — they already know and trust you.' },
         { key: 'decisionIndependence', label: 'Decision Independence', isAuto: false, desc: 'Can the person you\'re talking to say yes on the spot, or does every decision go up the chain? An independent owner can commit in one meeting — a franchise manager may need corporate sign-off.' },
       ];
       function sliderHtml(c) {
         const isNA = !!naSet[c.key];
         const isRevenue = c.key === 'revenuePotential';
         const activeColor = isRevenue ? 'var(--gold)' : 'var(--accent)';
-        if (c.isAuto) {
-          const val = c.autoVal;
-          const hasData = val !== null;
-          const barStyle = hasData ? `background:linear-gradient(to right,var(--accent) 0%,var(--accent) ${val * 10}%,var(--bg3) ${val * 10}%,var(--bg3) 100%)` : `background:var(--bg3)`;
-          const badge = hasData
+        // For auto metrics: use stored override if set, otherwise fall back to auto value
+        const val = c.isAuto
+          ? (base[c.key] != null ? base[c.key] : (c.autoVal !== null ? c.autoVal : 5))
+          : (base[c.key] != null ? base[c.key] : 5);
+        const hasAutoData = c.isAuto && c.autoVal !== null;
+        const hasManualOverride = c.isAuto && base[c.key] != null;
+        const autoBadge = c.isAuto && !hasManualOverride
+          ? (hasAutoData
             ? `<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent);border-radius:8px;padding:1px 6px;">AUTO</span>`
-            : `<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1px 6px;">NO DATA</span>`;
-          return `<div class="score-criterion${hasData ? '' : ' is-na'}" id="sc-row-${c.key}">
-      <div class="score-crit-header">
-        <div style="display:flex;align-items:center;gap:6px;">
-          <div class="score-crit-name" style="${hasData ? '' : 'color:var(--text3)'}">${c.label}</div>
-          ${badge}
-          ${hasData ? '' : '<span class="score-na-badge">no data — not counted</span>'}
-        </div>
-        <div class="score-crit-val" style="${hasData ? '' : 'color:var(--text3)'}">${hasData ? val : '—'}</div>
-      </div>
-      <input class="score-slider disabled" type="range" min="1" max="10" value="${val || 5}" style="${barStyle}" disabled>
-      <div class="score-crit-desc">${c.desc}</div>
-    </div>`;
-        }
-        const val = base[c.key] != null ? base[c.key] : 5;
+            : `<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1px 6px;">NO DATA</span>`)
+          : '';
         const naBtn = `<button class="score-na-toggle ${isNA ? 'na-active' : ''}" style="${!isNA && isRevenue ? 'background:var(--gold-light);color:var(--gold);border-color:var(--gold);' : ''}" onclick="toggleScoreNA('${lead.id}','${c.key}',this)" title="Toggle OFF / ON — OFF sliders are excluded from the score">${isNA ? 'OFF' : 'ON'}</button>`;
         return `<div class="score-criterion${isNA ? ' is-na' : ''}" id="sc-row-${c.key}">
       <div class="score-crit-header">
         <div style="display:flex;align-items:center;gap:6px;">
-          <div class="score-crit-name" style="${isRevenue ? 'color:var(--gold);font-weight:600;' : ''}">${isRevenue ? '⭐ ' : ''}${c.label}${isRevenue ? '<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:var(--gold-light);border:1px solid var(--gold);border-radius:8px;padding:1px 6px;margin-left:6px;">2× weight</span>' : ''}</div>
+          <div class="score-crit-name" style="${isRevenue ? 'color:var(--gold);font-weight:600;' : ''}">${isRevenue ? '⭐ ' : ''}${c.label}${isRevenue ? '<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:var(--gold-light);border:1px solid var(--gold);border-radius:8px;padding:1px 6px;margin-left:6px;">2× weight</span>' : ''}${autoBadge}</div>
           ${isNA ? '<span class="score-na-badge">OFF — not counted</span>' : ''}
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
@@ -3523,8 +3514,8 @@
           <div style="font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Total Partner Score</div>
           <span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:var(--gold-light);border:1px solid var(--gold);border-radius:8px;padding:1px 6px;">Revenue 2×</span>
         </div>
-        <div style="font-family:'DM Serif Display',serif;font-size:36px;line-height:1;${total === null ? 'color:var(--text3);font-size:22px;' : ''}" id="total-score-disp">${total === null ? '—' : total}</div>
-        <div style="font-size:11px;color:var(--text3);">${total === null ? 'No score data available' : 'out of 10'}</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:36px;line-height:1;${total === null ? 'color:var(--text3);font-size:16px;font-family:inherit;' : ''}" id="total-score-disp">${total === null ? 'Set Revenue Potential →' : total}</div>
+        <div style="font-size:11px;color:var(--text3);">${total === null ? '' : 'out of 10'}</div>
       </div>
       <div style="width:68px;height:68px;border-radius:50%;border:3px solid ${total === null ? 'var(--border)' : total >= 8 ? 'var(--accent)' : total >= 5 ? 'var(--warm)' : 'var(--text3)'};display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:${total === null ? '28px' : '20px'};" id="score-circle">${total === null ? '—' : total}</div>
     </div>
