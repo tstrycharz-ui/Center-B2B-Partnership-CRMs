@@ -2216,7 +2216,7 @@
       </div>
 
       <div class="sidebar-section">
-        <div class="section-label">By Type</div>
+        <div class="section-label">Partner Categories</div>
 
         <!-- Vet Clinics -->
         <div class="nav-group" id="navg-vet">
@@ -2375,7 +2375,6 @@
           <div class="page-header-row">
             <div>
               <div class="page-title">Partnership Leads</div>
-              <div class="page-subtitle" id="leads-subtitle">Avondale, AZ · All partner types</div>
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
               <button class="btn-primary" onclick="openAddLead()" style="font-size:12px;padding:7px 14px;">+ Add
@@ -2718,34 +2717,56 @@
       { id: 'rsc-09', name: 'Sun Valley Labrador Breeders', type: 'rescue', category: 'AKC Specialty Breeder', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 935-0000', email: '', website: '', rating: 4.7, reviews: 28, dist: '3 mi', ownership: 'AKC-registered', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'Low', notes: 'Labs are top boarding breed nationally. 3 mi. ~27 pups/yr.', tags: ['Breeder', 'Labrador', 'High Value'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 8, volumePotential: 8 } },
       { id: 'rsc-10', name: 'Saving Paws Rescue AZ', type: 'rescue', category: 'Foster-Based Local Rescue', tier: 2, location: 'Avondale area', address: '', phone: '(623) 877-0000', email: 'info@savingpawsaz.org', website: '', rating: 4.3, reviews: 56, dist: '2 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Foster-based W Valley rescue. Email confirmed. ~89 adoptions/yr.', tags: ['Email Confirmed', 'Local', 'Foster-Based'], status: 'not-started', score: { proximity: 8, overlap: 8, reputation: 7, volumePotential: 6 } },
       // ── MISCELLANEOUS ──
-      { id: 'misc-01', name: 'Modern Grind Coffee', type: 'misc', category: 'Coffee Shop — Adjacent Business', tier: 1, location: 'Avondale, AZ', address: 'Next door to Pete & Mac\'s', phone: '', email: '', website: '', rating: 4.8, reviews: 0, dist: '<0.1 mi (next door)', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Coffee shop next door. Walk-in traffic crossover opportunity. Mutual referral potential — dog owners are coffee buyers. Introduce in person.', tags: ['Walking Distance', 'Active Partner'], status: 'partner', score: { proximity: 10, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 'misc-02', name: 'Local Yoga Studio', type: 'misc', category: 'Wellness — Active Partnership', tier: 1, location: 'Avondale, AZ', address: 'Down the street', phone: '', email: '', website: '', rating: 4.7, reviews: 0, dist: '<0.5 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'High', notes: 'Existing partnership per Krystle. Dog-owner demographic overlap strong (active, wellness-focused). Cross-referral via flyers / social.', tags: ['Active Partner', 'Walking Distance'], status: 'partner', score: { proximity: 9, overlap: 6, reputation: 8, volumePotential: 6 } },
-      { id: 'misc-03', name: 'Dog Treat Bakery', type: 'misc', category: 'Pet Specialty Retail', tier: 1, location: 'Avondale, AZ', address: 'Across the street', phone: '', email: '', website: '', rating: 4.9, reviews: 0, dist: '<0.2 mi (across street)', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing partnership per Krystle. Across the street. Dog treat bakery = 100% shared clientele. Co-marketing potential (welcome bags, refer-a-friend).', tags: ['Active Partner', 'Walking Distance', 'Shared Clientele'], status: 'partner', score: { proximity: 10, overlap: 10, reputation: 9, volumePotential: 8 } },
-      { id: 'misc-04', name: 'Luke Air Force Base', type: 'misc', category: 'Military Installation — Community Partner', tier: 2, location: 'Glendale, AZ 85309', address: 'Luke AFB, AZ', phone: '', email: '', website: 'https://lukeafb.af.mil', rating: 0, reviews: 0, dist: '~8 mi', ownership: 'U.S. Government', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing community partnership per Krystle. Military families relocate frequently — high boarding demand during deployments and moves. Pet-friendly base.', tags: ['Active Partner', 'Military', 'High Volume'], status: 'partner', score: { proximity: 5, overlap: 8, reputation: 9, volumePotential: 9 } },
+      { id: 'misc-01', name: 'Modern Grind Coffee', type: 'misc', category: 'Coffee Shop — Adjacent Business', tier: 1, location: 'Avondale, AZ', address: 'Next door to Pete & Mac\'s', phone: '', email: '', website: '', rating: 4.8, reviews: 0, dist: '0.1 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Coffee shop next door. Walk-in traffic crossover opportunity. Mutual referral potential — dog owners are coffee buyers. Introduce in person.', tags: ['Walking Distance', 'Active Partner'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
+      { id: 'misc-02', name: 'Local Yoga Studio', type: 'misc', category: 'Wellness — Active Partnership', tier: 1, location: 'Avondale, AZ', address: 'Down the street', phone: '', email: '', website: '', rating: 4.7, reviews: 0, dist: '0.5 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'High', notes: 'Existing partnership per Krystle. Dog-owner demographic overlap strong (active, wellness-focused). Cross-referral via flyers / social.', tags: ['Active Partner', 'Walking Distance'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
+      { id: 'misc-03', name: 'Dog Treat Bakery', type: 'misc', category: 'Pet Specialty Retail', tier: 1, location: 'Avondale, AZ', address: 'Across the street', phone: '', email: '', website: '', rating: 4.9, reviews: 0, dist: '0.2 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing partnership per Krystle. Across the street. Dog treat bakery = 100% shared clientele. Co-marketing potential (welcome bags, refer-a-friend).', tags: ['Active Partner', 'Walking Distance', 'Shared Clientele'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
+      { id: 'misc-04', name: 'Luke Air Force Base', type: 'misc', category: 'Military Installation — Community Partner', tier: 2, location: 'Glendale, AZ 85309', address: 'Luke AFB, AZ', phone: '', email: '', website: 'https://lukeafb.af.mil', rating: 0, reviews: 0, dist: '8 mi', ownership: 'U.S. Government', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing community partnership per Krystle. Military families relocate frequently — high boarding demand during deployments and moves. Pet-friendly base.', tags: ['Active Partner', 'Military', 'High Volume'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
     ];
 
     let LEADS = CENTER_ID === '232' ? SEED_LEADS : [];
 
     /* ── STORAGE HELPERS ── */
     function getStatus(lead) { return OVERRIDES.status[lead.id] || lead.status || 'not-started'; }
-    const OPTIONAL_SCORE_KEYS = ['overlap', 'revenuePotential', 'volumePotential', 'walkInWait', 'apptAvailability'];
-    const ALL_SCORE_KEYS = ['proximity', 'reputation', 'overlap', 'revenuePotential', 'volumePotential', 'walkInWait', 'apptAvailability'];
+    const OPTIONAL_SCORE_KEYS = ['revenuePotential', 'clientOverlap', 'decisionIndependence'];
+    const ALL_SCORE_KEYS = ['revenuePotential', 'proximity', 'reputation', 'clientOverlap', 'decisionIndependence'];
+    function calcProximityScore(lead) {
+      const raw = parseFloat((lead.dist || '').replace(/[^0-9.]/g, ''));
+      if (isNaN(raw)) return null;
+      if (raw <= 0.5) return 10; if (raw <= 1)  return 9;  if (raw <= 3)  return 8;
+      if (raw <= 5)   return 7;  if (raw <= 10) return 6;  if (raw <= 15) return 5;
+      if (raw <= 20)  return 4;  if (raw <= 25) return 3;  if (raw <= 30) return 2;
+      return 1;
+    }
+    function calcReputationScore(lead) {
+      const rating = parseFloat(lead.rating);
+      const reviews = parseInt(lead.reviews);
+      if (!rating || isNaN(rating)) return null;
+      // Category percentile: compare this lead against peers of same type
+      const peers = LEADS.filter(l => l.type === lead.type && parseFloat(l.rating) > 0);
+      let ratingPct = 1, reviewPct = 1;
+      if (peers.length > 1) {
+        ratingPct = peers.filter(l => parseFloat(l.rating) <= rating).length / peers.length;
+        const reviewPeers = peers.filter(l => !isNaN(parseInt(l.reviews)));
+        reviewPct = reviewPeers.length > 0
+          ? reviewPeers.filter(l => parseInt(l.reviews) <= (isNaN(reviews) ? 0 : reviews)).length / reviewPeers.length
+          : 1;
+      }
+      const score = 1 + 9 * (0.55 * ratingPct + 0.25 * (rating / 5) + 0.20 * reviewPct);
+      return Math.min(10, Math.max(1, Math.round(score)));
+    }
     function getScore(lead) {
-      const s = OVERRIDES.scores[lead.id] || lead.score;
-      const _globalDefault = { overlap: true, revenuePotential: true, volumePotential: true, walkInWait: true, apptAvailability: true };
-      const _leadDefault = lead.scoreDefaults || {};
-      const _baseNA = Object.assign({}, _globalDefault, _leadDefault);
+      const base = OVERRIDES.scores[lead.id] || lead.score || {};
+      const _globalDefault = {};
       const _stored = (OVERRIDES.scores[lead.id] || {})._na;
-      const effectiveNA = _stored ? Object.assign({}, _baseNA, _stored) : _baseNA;
-      // Score is locked until Revenue Potential is manually turned ON
-      if (effectiveNA['revenuePotential']) return null;
-      const activeKeys = ALL_SCORE_KEYS.filter(k => !effectiveNA[k] && s[k] != null);
+      const naSet = _stored ? Object.assign({}, _globalDefault, _stored) : Object.assign({}, _globalDefault);
+      const s = Object.assign({}, base);
+      const autoProx = calcProximityScore(lead);
+      const autoRep = calcReputationScore(lead);
+      if (autoProx !== null) s.proximity = autoProx;
+      if (autoRep !== null) s.reputation = autoRep;
+      const activeKeys = ALL_SCORE_KEYS.filter(k => !naSet[k] && s[k] != null);
       if (!activeKeys.length) return null;
-      // Revenue Potential counts twice — weighted 2x all other factors
-      const sum = activeKeys.reduce((t, k) => {
-        const v = s[k] || 5;
-        return t + (k === 'revenuePotential' ? v * 2 : v);
-      }, 0);
+      const sum = activeKeys.reduce((t, k) => t + (k === 'revenuePotential' ? (s[k] || 5) * 2 : (s[k] || 5)), 0);
       const denominator = activeKeys.reduce((t, k) => t + (k === 'revenuePotential' ? 20 : 10), 0);
       return Math.round((sum / denominator) * 10);
     }
@@ -2844,8 +2865,6 @@
         document.title = info.display_name + ' — Partnership CRM';
         const bn = document.getElementById('sidebar-brand-name');
         if (bn) bn.textContent = info.display_name;
-        const sub = document.getElementById('leads-subtitle');
-        if (sub && info.city && info.state) sub.textContent = info.city + ', ' + info.state + ' · All partner types';
         const addr = document.getElementById('sidebar-brand-address');
         if (addr && info.address) addr.textContent = info.address + ' · Partnership CRM';
       } catch (e) { }
@@ -3017,27 +3036,27 @@
     /* ── SUB-TYPE MATCHERS ── */
     const SUBTYPE_MATCH = {
       vet: {
-        primary: l => /General Practice|General \/ Urgent/.test(l.category),
-        urgent: l => /Urgent Care/.test(l.category) && !/Emergency/.test(l.category),
-        emergency: l => /Emergency|24hr/.test(l.category),
+        primary: l => !/Urgent Care|Emergency|24hr|Critical Care/i.test(l.category),
+        urgent: l => /Urgent Care/i.test(l.category) && !/Emergency|24hr/i.test(l.category),
+        emergency: l => /Emergency|24hr|Critical Care/i.test(l.category),
       },
       apt: {
-        luxury: l => /Luxury/.test(l.category),
-        standard: l => /Apartment Complex|Mid-Range|Garden|High-Rise|Pet-Friendly/.test(l.category),
-        btr: l => /Built-to-Rent|BTR/.test(l.category),
+        luxury: l => /Luxury/i.test(l.category),
+        btr: l => /Built-to-Rent|BTR/i.test(l.category),
+        standard: l => !/Luxury|Built-to-Rent|BTR/i.test(l.category),
       },
       realtor: {
-        team: l => /Team/.test(l.ownership || l.category),
-        solo: l => /Solo/.test(l.ownership || l.category),
+        team: l => /Team|Group|Partners|Associates/i.test(l.ownership || l.category || ''),
+        solo: l => !/Team|Group|Partners|Associates/i.test(l.ownership || l.category || ''),
       },
       'pet-services': {
-        training: l => /Training|Train/.test(l.category),
-        grooming: l => /Grooming|Groom/.test(l.category) && !/Mobile/.test(l.category),
-        mobile: l => /Mobile/.test(l.category),
+        training: l => /Training|Train/i.test(l.category),
+        grooming: l => /Grooming|Groom/i.test(l.category) && !/Mobile/i.test(l.category),
+        mobile: l => /Mobile/i.test(l.category),
       },
       rescue: {
-        rescue: l => !/Breeder/.test(l.category),
-        breeder: l => /Breeder/.test(l.category),
+        rescue: l => !/Breeder/i.test(l.category),
+        breeder: l => /Breeder/i.test(l.category),
       },
     };
 
@@ -3439,27 +3458,45 @@
     }
 
     function renderDrawerScore(lead) {
-      const savedScore = OVERRIDES.scores[lead.id] || lead.score;
-      const _globalDefault = { overlap: true, revenuePotential: true, volumePotential: true, walkInWait: true, apptAvailability: true };
-      const _leadDefault = lead.scoreDefaults || {};
-      const _baseNA = Object.assign({}, _globalDefault, _leadDefault);
+      const base = OVERRIDES.scores[lead.id] || lead.score || {};
+      const _globalDefault = {};
       const _stored = (OVERRIDES.scores[lead.id] || {})._na;
-      const naSet = _stored ? Object.assign({}, _baseNA, _stored) : Object.assign({}, _baseNA);
+      const naSet = _stored ? Object.assign({}, _globalDefault, _stored) : Object.assign({}, _globalDefault);
       const total = getScore(lead);
+      const autoProx = calcProximityScore(lead);
+      const autoRep = calcReputationScore(lead);
       const allCriteria = [
-        { key: 'revenuePotential', label: 'Revenue Potential', desc: 'How much money could this partnership realistically bring in over time? Think about whether their clients spend a lot, use multiple services, and stick around — a partner who sends you one big spender is worth more than one who sends you ten one-time visitors.' },
-        { key: 'proximity', label: 'Proximity', desc: 'How close are they to Pete & Mac\'s? The closer they are, the more likely their clients are already in the neighborhood — which means less friction for them to walk through our door.' },
-        { key: 'reputation', label: 'Reputation', desc: 'Do people trust and respect them? A partner with great reviews and a strong local reputation sends clients who already have high standards — and they\'re more likely to take our recommendation seriously.' },
-        { key: 'overlap', label: 'Client Overlap', desc: 'How many of their clients are also our kind of customer — dog owners who are already spending on their pet? The more overlap, the less convincing it takes to get a referral to convert.' },
-        { key: 'volumePotential', label: 'Volume Potential', desc: 'How many new customers could this partner realistically send us in a year? A busy vet clinic sees hundreds of dogs a week — even converting a small percentage is a big deal.' },
-        { key: 'walkInWait', label: 'Walk-In Wait Time', desc: 'How fast can someone get seen if they walk in without an appointment? Mainly useful for urgent care and ER vets — if their clients can\'t get in quickly, they\'ll need us as a resource partner.' },
-        { key: 'apptAvailability', label: 'Appointment Availability', desc: 'How easy is it to get an appointment in the next day or two? Partners who are hard to book send clients looking for alternatives — that\'s an opening for us.' },
+        { key: 'revenuePotential', label: 'Revenue Potential', isAuto: false, desc: 'How much money could this partnership realistically bring in over time? Think about whether their clients spend a lot, use multiple services, and stick around — a partner who sends you one big spender is worth more than one who sends ten one-time visitors.' },
+        { key: 'proximity', label: 'Proximity', isAuto: true, autoVal: autoProx, desc: 'Auto-calculated from distance to Pete & Mac\'s. The closer they are, the more likely their clients are already in the neighborhood — less friction for them to walk through your door.' },
+        { key: 'reputation', label: 'Reputation', isAuto: true, autoVal: autoRep, desc: 'Auto-calculated from Google rating and review count. A partner with great reviews sends clients who already have high standards and are more likely to take your recommendation seriously.' },
+        { key: 'clientOverlap', label: 'Existing Client Overlap', isAuto: false, desc: 'How many of their current clients are also Pete & Mac\'s clients? The more overlap, the less convincing it takes to get a referral to convert — they already know and trust you.' },
+        { key: 'decisionIndependence', label: 'Decision Independence', isAuto: false, desc: 'Can the person you\'re talking to say yes on the spot, or does every decision go up the chain? An independent owner can commit in one meeting — a franchise manager may need corporate sign-off.' },
       ];
       function sliderHtml(c) {
         const isNA = !!naSet[c.key];
-        const val = savedScore[c.key] != null ? savedScore[c.key] : 5;
         const isRevenue = c.key === 'revenuePotential';
         const activeColor = isRevenue ? 'var(--gold)' : 'var(--accent)';
+        if (c.isAuto) {
+          const val = c.autoVal;
+          const hasData = val !== null;
+          const barStyle = hasData ? `background:linear-gradient(to right,var(--accent) 0%,var(--accent) ${val * 10}%,var(--bg3) ${val * 10}%,var(--bg3) 100%)` : `background:var(--bg3)`;
+          const badge = hasData
+            ? `<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);border:1px solid var(--accent);border-radius:8px;padding:1px 6px;">AUTO</span>`
+            : `<span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1px 6px;">NO DATA</span>`;
+          return `<div class="score-criterion${hasData ? '' : ' is-na'}" id="sc-row-${c.key}">
+      <div class="score-crit-header">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div class="score-crit-name" style="${hasData ? '' : 'color:var(--text3)'}">${c.label}</div>
+          ${badge}
+          ${hasData ? '' : '<span class="score-na-badge">no data — not counted</span>'}
+        </div>
+        <div class="score-crit-val" style="${hasData ? '' : 'color:var(--text3)'}">${hasData ? val : '—'}</div>
+      </div>
+      <input class="score-slider disabled" type="range" min="1" max="10" value="${val || 5}" style="${barStyle}" disabled>
+      <div class="score-crit-desc">${c.desc}</div>
+    </div>`;
+        }
+        const val = base[c.key] != null ? base[c.key] : 5;
         const naBtn = `<button class="score-na-toggle ${isNA ? 'na-active' : ''}" style="${!isNA && isRevenue ? 'background:var(--gold-light);color:var(--gold);border-color:var(--gold);' : ''}" onclick="toggleScoreNA('${lead.id}','${c.key}',this)" title="Toggle OFF / ON — OFF sliders are excluded from the score">${isNA ? 'OFF' : 'ON'}</button>`;
         return `<div class="score-criterion${isNA ? ' is-na' : ''}" id="sc-row-${c.key}">
       <div class="score-crit-header">
@@ -3487,7 +3524,7 @@
           <span style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:var(--gold-light);border:1px solid var(--gold);border-radius:8px;padding:1px 6px;">Revenue 2×</span>
         </div>
         <div style="font-family:'DM Serif Display',serif;font-size:36px;line-height:1;${total === null ? 'color:var(--text3);font-size:22px;' : ''}" id="total-score-disp">${total === null ? '—' : total}</div>
-        <div style="font-size:11px;color:var(--text3);">${total === null ? 'Turn on Revenue Potential to unlock' : 'out of 10'}</div>
+        <div style="font-size:11px;color:var(--text3);">${total === null ? 'No score data available' : 'out of 10'}</div>
       </div>
       <div style="width:68px;height:68px;border-radius:50%;border:3px solid ${total === null ? 'var(--border)' : total >= 8 ? 'var(--accent)' : total >= 5 ? 'var(--warm)' : 'var(--text3)'};display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:${total === null ? '28px' : '20px'};" id="score-circle">${total === null ? '—' : total}</div>
     </div>
@@ -3650,7 +3687,7 @@
         if (scoreVal) {
           scoreVal.style.fontSize = sc === null ? '13px' : '';
           scoreVal.style.color = sc === null ? 'var(--text3)' : '';
-          scoreVal.textContent = sc === null ? 'Set Revenue →' : '' + sc;
+          scoreVal.textContent = sc === null ? '—' : '' + sc;
         }
       }
     }
@@ -3700,7 +3737,7 @@
       const c = document.getElementById('score-circle');
       const sub = d?.nextElementSibling;
       if (d) { d.textContent = t === null ? '—' : t; d.style.fontSize = t === null ? '22px' : '36px'; }
-      if (sub) sub.textContent = t === null ? 'Turn on Revenue Potential to unlock' : 'out of 10';
+      if (sub) sub.textContent = t === null ? 'No score data available' : 'out of 10';
       if (c) { c.textContent = t === null ? '—' : t; c.style.fontSize = t === null ? '28px' : '20px'; c.style.borderColor = t === null ? 'var(--border)' : t >= 8 ? 'var(--accent)' : t >= 5 ? 'var(--warm)' : 'var(--text3)'; }
     }
     function togglePrep(pk, idx, el) {
