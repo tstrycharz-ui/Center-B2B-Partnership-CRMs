@@ -2228,14 +2228,20 @@
             <div class="nav-sub-item" onclick="filterBySubType('vet',null,this)">
               <div class="nav-sub-dot"></div> All Vets
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('vet','primary',this)">
+            <div class="nav-sub-item" onclick="filterBySubType('vet','primary-care',this)">
               <div class="nav-sub-dot"></div> Primary Care
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('vet','urgent',this)">
+            <div class="nav-sub-item" onclick="filterBySubType('vet','urgent-care',this)">
               <div class="nav-sub-dot"></div> Urgent Care
             </div>
             <div class="nav-sub-item" onclick="filterBySubType('vet','emergency',this)">
-              <div class="nav-sub-dot"></div> Emergency
+              <div class="nav-sub-dot"></div> Emergency / 24hr
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('vet','specialty',this)">
+              <div class="nav-sub-dot"></div> Specialty
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('vet','mobile-vet',this)">
+              <div class="nav-sub-dot"></div> Mobile Vet
             </div>
           </div>
         </div>
@@ -2253,11 +2259,14 @@
             <div class="nav-sub-item" onclick="filterBySubType('apt','luxury',this)">
               <div class="nav-sub-dot"></div> Luxury
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('apt','standard',this)">
-              <div class="nav-sub-dot"></div> Standard
+            <div class="nav-sub-item" onclick="filterBySubType('apt','mid-range',this)">
+              <div class="nav-sub-dot"></div> Mid-Range
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('apt','btr',this)">
-              <div class="nav-sub-dot"></div> Built-to-Rent
+            <div class="nav-sub-item" onclick="filterBySubType('apt','affordable',this)">
+              <div class="nav-sub-dot"></div> Affordable
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('apt','student-housing',this)">
+              <div class="nav-sub-dot"></div> Student Housing
             </div>
           </div>
         </div>
@@ -2272,11 +2281,20 @@
             <div class="nav-sub-item" onclick="filterBySubType('realtor',null,this)">
               <div class="nav-sub-dot"></div> All Realtors
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('realtor','team',this)">
-              <div class="nav-sub-dot"></div> Teams
+            <div class="nav-sub-item" onclick="filterBySubType('realtor','residential',this)">
+              <div class="nav-sub-dot"></div> Residential
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('realtor','solo',this)">
-              <div class="nav-sub-dot"></div> Solo Agents
+            <div class="nav-sub-item" onclick="filterBySubType('realtor','relocation-specialist',this)">
+              <div class="nav-sub-dot"></div> Relocation Specialist
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('realtor','military-relocation',this)">
+              <div class="nav-sub-dot"></div> Military Relocation
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('realtor','new-construction',this)">
+              <div class="nav-sub-dot"></div> New Construction
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('realtor','luxury',this)">
+              <div class="nav-sub-dot"></div> Luxury
             </div>
           </div>
         </div>
@@ -2291,14 +2309,14 @@
             <div class="nav-sub-item" onclick="filterBySubType('pet-services',null,this)">
               <div class="nav-sub-dot"></div> All Pet Services
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('pet-services','training',this)">
-              <div class="nav-sub-dot"></div> Trainers
-            </div>
             <div class="nav-sub-item" onclick="filterBySubType('pet-services','grooming',this)">
-              <div class="nav-sub-dot"></div> Groomers
+              <div class="nav-sub-dot"></div> Grooming
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('pet-services','mobile',this)">
-              <div class="nav-sub-dot"></div> Mobile Services
+            <div class="nav-sub-item" onclick="filterBySubType('pet-services','training',this)">
+              <div class="nav-sub-dot"></div> Training
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('pet-services','other',this)">
+              <div class="nav-sub-dot"></div> Other Pet Services
             </div>
           </div>
         </div>
@@ -2313,11 +2331,14 @@
             <div class="nav-sub-item" onclick="filterBySubType('rescue',null,this)">
               <div class="nav-sub-dot"></div> All Rescue
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('rescue','rescue',this)">
-              <div class="nav-sub-dot"></div> Rescues & Shelters
+            <div class="nav-sub-item" onclick="filterBySubType('rescue','rescue-shelter',this)">
+              <div class="nav-sub-dot"></div> Rescue/Shelter
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('rescue','foster-network',this)">
+              <div class="nav-sub-dot"></div> Foster Network
             </div>
             <div class="nav-sub-item" onclick="filterBySubType('rescue','breeder',this)">
-              <div class="nav-sub-dot"></div> Breeders
+              <div class="nav-sub-dot"></div> Breeder
             </div>
           </div>
         </div>
@@ -2331,6 +2352,27 @@
           <div class="nav-sub-items">
             <div class="nav-sub-item" onclick="filterBySubType('misc',null,this)">
               <div class="nav-sub-dot"></div> All Misc
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','dog-friendly',this)">
+              <div class="nav-sub-dot"></div> Dog-Friendly Venue
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','hotel',this)">
+              <div class="nav-sub-dot"></div> Hotel / Hospitality
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','pet-retail',this)">
+              <div class="nav-sub-dot"></div> Pet Retail / Supply
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','dog-park',this)">
+              <div class="nav-sub-dot"></div> Dog Park / Recreation
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','military',this)">
+              <div class="nav-sub-dot"></div> Military / Base Partnership
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','pet-photography',this)">
+              <div class="nav-sub-dot"></div> Pet Photography
+            </div>
+            <div class="nav-sub-item" onclick="filterBySubType('misc','other',this)">
+              <div class="nav-sub-dot"></div> Other
             </div>
           </div>
         </div>
@@ -2361,8 +2403,8 @@
 
       <div class="data-status">
         <div class="data-dot" id="data-dot"></div>
-        <span class="data-label" id="data-label">Seed data</span>
-        <button class="refresh-btn" onclick="loadSheetData()">↻ Refresh</button>
+        <span class="data-label" id="data-label">Loading…</span>
+        <button class="refresh-btn" onclick="refreshLeads()">↻ Refresh</button>
       </div>
     </div>
 
@@ -2638,90 +2680,7 @@
     let dragLeadId = null;
 
     /* ── SEED LEAD DATA ── */
-    const SEED_LEADS = [
-      // ── VETS ──
-      { id: 'vet-01', name: 'BluePearl Pet Hospital', type: 'vet', category: 'Emergency / 24hr', tier: 1, location: 'Avondale, AZ 85392', address: '13034 W Rancho Santa Fe Blvd Ste. 101', phone: '(623) 385-4555', email: '', website: 'https://bluepearlvet.com', rating: 3.5, reviews: 858, dist: '0 mi (same building)', ownership: 'Corporate (Mars Petcare)', risk: 'Low', overflow: 'N/A — Emergency only', referral: 'High', confidence: 'Medium', notes: '⚠️ SAME BUILDING STE 101 — introduce in person Day 1. Emergency/specialty only. 24hr. Low competitive risk.', tags: ['Same Building', '24hr', 'Corporate'], status: 'not-started', score: { proximity: 10, overlap: 1, reputation: 6, volumePotential: 9 }, scoreDefaults: { overlap: true } },
-      { id: 'vet-02', name: 'Eye Care for Animals – Avondale', type: 'vet', category: 'Specialty – Ophthalmology', tier: 1, location: 'Avondale, AZ 85392', address: '13034 W Rancho Santa Fe Blvd #102', phone: '(623) 872-3937', email: '', website: 'https://eyecareforanimals.com', rating: 4.9, reviews: 244, dist: '0.1 mi (same building)', ownership: 'Corporate (IDEXX-affiliated)', risk: 'Low', overflow: 'N/A — Specialty only', referral: 'High', confidence: 'Medium', notes: '⚠️ SAME BUILDING STE 102 — specialty ophthalmology. 4.9 stars. High-income clientele. Introduce in person Day 1.', tags: ['Same Building', 'Specialty', 'High Reviews'], status: 'not-started', score: { proximity: 10, overlap: 1, reputation: 10, volumePotential: 7 }, scoreDefaults: { overlap: true } },
-      { id: 'vet-03', name: 'Agua Fria Animal Hospital', type: 'vet', category: 'General Practice', tier: 1, location: 'Avondale, AZ 85392', address: '13330 W Van Buren St', phone: '(623) 932-3611', email: '', website: 'https://aguafriavet.com', rating: 4.6, reviews: 675, dist: '0.8 mi', ownership: 'Independent (privately owned)', risk: 'Low', overflow: 'N/A — Vet only', referral: 'High', confidence: 'High', notes: '0.8 mi. Independent general practice. Website-confirmed vet only. Top priority outreach. 4.6 stars / 675 reviews.', tags: ['Independent', 'Top Priority'], status: 'not-started', score: { proximity: 9, overlap: 5, reputation: 8, volumePotential: 8 } },
-      { id: 'vet-04', name: 'CityVet Goodyear', type: 'vet', category: 'General Practice', tier: 1, location: 'Goodyear, AZ', address: '2415 N Litchfield Rd', phone: '(623) 303-1981', email: '', website: 'https://cityvet.com/goodyear', rating: 5.0, reviews: 199, dist: '2.1 mi', ownership: 'Corporate (PE-backed)', risk: 'Low', overflow: 'N/A — Vet only', referral: 'High', confidence: 'High', notes: '5.0 stars / 199 reviews. 2.1 mi. CityVet website confirms vet only. Modern brand. Corporate but local autonomy possible.', tags: ['5-Star', 'Corporate'], status: 'not-started', score: { proximity: 8, overlap: 3, reputation: 10, volumePotential: 8 } },
-      { id: 'vet-05', name: 'Dreaming Summit Animal Hospital', type: 'vet', category: 'General Practice', tier: 1, location: 'Avondale, AZ', address: '1750 N Dysart Rd', phone: '(623) 935-1555', email: 'contactus@dreamingsummitah.com', website: 'https://dreamingsummitah.com', rating: 4.7, reviews: 312, dist: '2.5 mi', ownership: 'Independent', risk: 'High — Boarding confirmed', overflow: 'Boarding overflow when full', referral: 'Medium', confidence: 'High', notes: '⚠️ BOARDING CONFIRMED on website — High competitive risk. Position as overflow partner when fully booked. Est. since 2005.', tags: ['⚠️ Boarding Risk', 'Independent'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 6 } },
-      { id: 'vet-06', name: 'Palm Valley Animal Clinic', type: 'vet', category: 'General Practice', tier: 1, location: 'Avondale, AZ', address: '13950 W Indian School Rd', phone: '(623) 935-3825', email: '', website: 'https://palmvalleyanimalclinic.com', rating: 4.8, reviews: 289, dist: '2.8 mi', ownership: 'Independent', risk: 'Low — Vet only', overflow: 'N/A — Vet only', referral: 'High', confidence: 'High', notes: '2.8 mi. Website-confirmed vet services only. Dr. Hatch mentioned in reviews — personal practice. Strong candidate.', tags: ['Independent', 'Named DVM'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 9, volumePotential: 8 } },
-      { id: 'vet-07', name: 'Legacy Animal Hospital', type: 'vet', category: 'General Practice', tier: 1, location: 'Avondale, AZ', address: '12725 W Indian School Rd', phone: '(623) 505-3100', email: '', website: 'https://legacyanimalhospitalaz.com', rating: 4.8, reviews: 178, dist: '3.2 mi', ownership: 'Independent', risk: 'Low — Vet only', overflow: 'N/A — Vet only', referral: 'High', confidence: 'High', notes: '3.2 mi. Website confirmed: vet/wellness only. Personal practice feel. 4.8 stars.', tags: ['Independent'], status: 'not-started', score: { proximity: 7, overlap: 10, reputation: 9, volumePotential: 7 } },
-      { id: 'vet-08', name: 'easyvet Goodyear', type: 'vet', category: 'General Practice', tier: 1, location: 'Goodyear, AZ', address: '2100 N Litchfield Rd', phone: '(602) 661-9455', email: '', website: 'https://easyvet.com/locations/goodyear', rating: 4.9, reviews: 1342, dist: '3.5 mi', ownership: 'Corporate (easyvet chain)', risk: 'Low — Vet only', overflow: 'N/A — Vet only', referral: 'High', confidence: 'High', notes: '4.9 stars / 1,342 reviews — highest review count in market. Website confirms vet only. Corporate chain.', tags: ['Highest Reviews', 'Corporate'], status: 'not-started', score: { proximity: 6, overlap: 3, reputation: 10, volumePotential: 9 } },
-      { id: 'vet-09', name: 'The Complete Pet Animal Hospital', type: 'vet', category: 'General Practice', tier: 1, location: 'Avondale, AZ', address: '11000 W Indian School Rd', phone: '(623) 935-9632', email: '', website: 'https://completepetanimalhospital.com', rating: 4.6, reviews: 404, dist: '2.2 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending verification', referral: 'Medium-High', confidence: 'Medium', notes: '⚠️ VERIFY SERVICES on website before outreach — confirm whether boarding offered. 4.6 / 404 reviews. 2.2 mi.', tags: ['⚠️ Verify Risk', 'Independent'], status: 'not-started', score: { proximity: 8, overlap: 4, reputation: 8, volumePotential: 7 } },
-      { id: 'vet-10', name: 'ArkVets', type: 'vet', category: 'General Practice', tier: 2, location: 'Avondale, AZ', address: '1010 N Avondale Blvd', phone: '(623) 877-1088', email: '', website: 'https://arkvets.com', rating: 4.2, reviews: 518, dist: '4.1 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending verification', referral: 'Medium', confidence: 'Medium', notes: '⚠️ VERIFY SERVICES on ArkVets.com before outreach. 4.1 mi, open until 8 PM. 518 reviews.', tags: ['⚠️ Verify Risk', 'Evening Hours'], status: 'not-started', score: { proximity: 6, overlap: 6, reputation: 7, volumePotential: 7 } },
-      { id: 'vet-11', name: 'Gentle Hearts Animal Hospital', type: 'vet', category: 'General Practice', tier: 2, location: 'Avondale, AZ', address: '3750 N 107th Ave', phone: '(623) 298-4200', email: '', website: 'https://gentleheartsah.com', rating: 4.6, reviews: 194, dist: '4.5 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending verification', referral: 'Medium', confidence: 'Medium', notes: '4.5 mi. ⚠️ VERIFY FULL SERVICES on website before outreach. Treats exotics — multi-pet households.', tags: ['⚠️ Verify Risk', 'Exotic Pets'], status: 'not-started', score: { proximity: 5, overlap: 5, reputation: 8, volumePotential: 6 } },
-      { id: 'vet-12', name: 'Lovet Pet Health Care – Sarival', type: 'vet', category: 'General / Urgent Care', tier: 2, location: 'Goodyear, AZ', address: 'Sarival Ave, Goodyear', phone: '(623) 234-2243', email: '', website: 'https://lovet.com', rating: 4.7, reviews: 156, dist: '4.0 mi', ownership: 'Corporate (AZ chain)', risk: 'Low — Vet/urgent care only', overflow: 'N/A — Vet only', referral: 'Medium', confidence: 'High', notes: '4.0 mi. Website confirmed vet/urgent care only. Bundle outreach with Lovet Goodyear — same corporate brand.', tags: ['Corporate', 'Bundle Outreach'], status: 'not-started', score: { proximity: 6, overlap: 8, reputation: 8, volumePotential: 6 } },
-      { id: 'vet-13', name: 'Lovet Pet Health Care – Goodyear', type: 'vet', category: 'General / Urgent Care', tier: 2, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(623) 882-9000', email: '', website: 'https://lovet.com', rating: 4.6, reviews: 134, dist: '3.8 mi', ownership: 'Corporate (AZ chain)', risk: 'Low — Vet/urgent care only', overflow: 'N/A — Vet only', referral: 'Medium', confidence: 'High', notes: '3.8 mi. Bundle outreach with Lovet Sarival — same corporate brand. Same outreach contact.', tags: ['Corporate', 'Bundle Outreach'], status: 'not-started', score: { proximity: 6, overlap: 10, reputation: 8, volumePotential: 6 } },
-      { id: 'vet-14', name: 'Vetco Total Care Animal Hospital', type: 'vet', category: 'General Practice', tier: 2, location: 'Avondale, AZ', address: '10220 W McDowell Rd', phone: '(480) 333-5445', email: '', website: 'https://vetco.net', rating: 4.1, reviews: 203, dist: '5.2 mi', ownership: 'Corporate (Petco-owned)', risk: 'Medium — Petco parent', overflow: 'N/A — Vet only', referral: 'Low', confidence: 'High', notes: '5.2 mi. Vetco.net confirms vet only. Corporate/Petco environment limits partnership potential.', tags: ['Corporate', 'Lower Priority'], status: 'not-started', score: { proximity: 5, overlap: 4, reputation: 7, volumePotential: 5 } },
-      { id: 'vet-15', name: 'Banfield Pet Hospital – Avondale', type: 'vet', category: 'General Practice', tier: 2, location: 'Avondale, AZ', address: '10250 W McDowell Rd (in PetSmart)', phone: '(623) 935-0044', email: '', website: 'https://banfield.com', rating: 4.2, reviews: 167, dist: '4.8 mi', ownership: 'Corporate (Mars Petcare/PetSmart)', risk: 'Low — Vet only', overflow: 'N/A — Vet only', referral: 'Low-Medium', confidence: 'High', notes: '4.8 mi. Website confirmed: vet only. Local hospital manager relationship possible. Corporate brand.', tags: ['Corporate', 'PetSmart Location'], status: 'not-started', score: { proximity: 5, overlap: 8, reputation: 7, volumePotential: 5 } },
-      { id: 'vet-16', name: 'Arizona Veterinary Emergency & Critical Care Center', type: 'vet', category: 'Emergency / 24hr', tier: 3, location: 'Phoenix, AZ', address: '2212 S 48th St, Tempe area', phone: '(602) 975-3826', email: '', website: 'https://azvec.com', rating: 4.3, reviews: 1006, dist: '8.5 mi', ownership: 'Independent', risk: 'Low — Emergency only', overflow: 'N/A — Emergency only', referral: 'Medium', confidence: 'High', notes: '24hr emergency. 8.5 mi. Place flyers in lobby. List on Pete & Mac\'s website as 24hr ER partner.', tags: ['24hr ER', 'Flyer Drop'], status: 'not-started', score: { proximity: 3, overlap: 1, reputation: 8, volumePotential: 7 }, scoreDefaults: { overlap: true } },
-      { id: 'vet-17', name: 'Livewell Animal Urgent Care – Goodyear', type: 'vet', category: 'Urgent Care', tier: 3, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(623) 352-9849', email: '', website: 'https://livewellanimalurgentcare.com', rating: 4.5, reviews: 89, dist: '3.1 mi', ownership: 'Independent', risk: 'Low — Urgent care only', overflow: 'N/A — Urgent care only', referral: 'Medium', confidence: 'High', notes: '3.1 mi. Urgent care (not full ER). Open until 10 PM. Crisis-moment referral opportunity.', tags: ['Urgent Care', 'Evening Hours'], status: 'not-started', score: { proximity: 7, overlap: 1, reputation: 8, volumePotential: 6 }, scoreDefaults: { overlap: true } },
-
-      // ── APARTMENTS ──
-      { id: 'apt-01', name: 'The Residences at Prasada', type: 'apt', category: 'Luxury Apartment', tier: 1, location: 'Surprise, AZ 85379', address: '14600 W Reade Ave', phone: '(623) 500-7000', email: 'leasing@residencesatprasada.com', website: 'https://residencesatprasada.com', rating: 4.3, reviews: 112, dist: '4.2 mi', ownership: 'Private developer', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'New luxury community. High-income renters = high-LTV clients. Dog-friendly marketing.', tags: ['Luxury', 'Email Confirmed'], status: 'not-started', score: { proximity: 6, overlap: 8, reputation: 8, volumePotential: 9 } },
-      { id: 'apt-02', name: 'Avondale Station Apartments', type: 'apt', category: 'Apartment Complex', tier: 1, location: 'Avondale, AZ 85392', address: '1500 N Avondale Blvd', phone: '(623) 932-2600', email: '', website: 'https://avondalestation.com', rating: 3.9, reviews: 87, dist: '1.2 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'Closest apartment at 1.2 mi; high walk-in client potential. Verify management type.', tags: ['Closest Apt', 'High Potential'], status: 'not-started', score: { proximity: 9, overlap: 7, reputation: 6, volumePotential: 8 } },
-      { id: 'apt-03', name: 'Rancho Santa Fe Villas', type: 'apt', category: 'Apartment Complex', tier: 1, location: 'Avondale, AZ 85392', address: '13034 W Rancho Santa Fe Blvd area', phone: '(623) 935-0000', email: '', website: '', rating: 4.1, reviews: 45, dist: '0.5 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Low', notes: '0.5 mi, same street — walk-in clients already likely. Top proximity partner.', tags: ['Same Street', 'Top Priority'], status: 'not-started', score: { proximity: 10, overlap: 7, reputation: 7, volumePotential: 8 } },
-      { id: 'apt-04', name: 'Avilla Camel Back Ranch', type: 'apt', category: 'Built-to-Rent / BTR', tier: 1, location: 'Phoenix, AZ 85037', address: '5151 N 107th Ave', phone: '(602) 612-0555', email: 'camelbackranch@avillapartners.com', website: 'https://avillapartners.com/avilla-camel-back-ranch', rating: 4.5, reviews: 203, dist: '3.8 mi', ownership: 'Corporate (Avilla Partners)', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'Single-story homes = dog-owner skew. Email confirmed. Corporate brand = higher outreach barrier.', tags: ['Email Confirmed', 'BTR'], status: 'not-started', score: { proximity: 6, overlap: 8, reputation: 8, volumePotential: 8 } },
-      { id: 'apt-05', name: 'Arroyo Norte', type: 'apt', category: 'Apartment Complex', tier: 1, location: 'Avondale, AZ', address: '1501 N 117th Ave', phone: '(623) 932-8800', email: '', website: 'https://arroyonorteapts.com', rating: 4.0, reviews: 68, dist: '1.5 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: '1.5 mi; established core Avondale community.', tags: ['Close Proximity'], status: 'not-started', score: { proximity: 9, overlap: 7, reputation: 7, volumePotential: 7 } },
-      { id: 'apt-06', name: 'Broadstone Goodyear', type: 'apt', category: 'Luxury Apartment', tier: 2, location: 'Goodyear, AZ', address: '880 N Dysart Rd', phone: '(623) 535-4445', email: '', website: 'https://broadstonegoodyear.com', rating: 4.4, reviews: 189, dist: '2.5 mi', ownership: 'Corporate (Allied Residential)', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Allied Residential manages multiple AZ properties. Good review count.', tags: ['Luxury', 'Corporate'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 'apt-07', name: 'Estrella Commons', type: 'apt', category: 'Apartment Complex', tier: 2, location: 'Goodyear, AZ', address: '4300 S Estrella Pkwy', phone: '(623) 535-2000', email: '', website: '', rating: 4.1, reviews: 134, dist: '3.3 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Low', notes: 'Estrella Mountain master-planned community. Verify management.', tags: ['Master-Planned'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 7, volumePotential: 7 } },
-      { id: 'apt-08', name: 'Watermark at Goodyear', type: 'apt', category: 'Luxury Apartment', tier: 2, location: 'Goodyear, AZ', address: '15030 W McDowell Rd', phone: '(623) 535-3800', email: '', website: 'https://watermarkatgoodyear.com', rating: 4.3, reviews: 145, dist: '4.1 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Newer luxury build; amenity-focused community.', tags: ['Luxury', 'Newer Build'], status: 'not-started', score: { proximity: 6, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 'apt-09', name: 'Presidio at Palm Valley', type: 'apt', category: 'Apartment Complex', tier: 2, location: 'Avondale, AZ', address: '3100 N Litchfield Rd', phone: '(623) 500-3100', email: '', website: 'https://presidioatpalmvalley.com', rating: 4.2, reviews: 178, dist: '3.0 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Affluent Palm Valley area; residents skew higher income.', tags: ['Palm Valley'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 'apt-10', name: 'Cielo at Palm Valley', type: 'apt', category: 'Apartment Complex', tier: 2, location: 'Avondale, AZ', address: '3130 N Litchfield Rd', phone: '(623) 882-0400', email: '', website: '', rating: 4.0, reviews: 112, dist: '3.1 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Low-Medium', confidence: 'Low', notes: 'Adjacent to Presidio — verify management separately.', tags: ['Palm Valley', '⚠️ Verify Data'], status: 'not-started', score: { proximity: 7, overlap: 6, reputation: 7, volumePotential: 6 } },
-      { id: 'apt-11', name: 'Avilla Grace', type: 'apt', category: 'Built-to-Rent / BTR', tier: 2, location: 'Avondale, AZ', address: '9720 W McDowell Rd', phone: '(623) 232-0100', email: 'grace@avillapartners.com', website: 'https://avillapartners.com/avilla-grace', rating: 4.6, reviews: 167, dist: '4.8 mi', ownership: 'Corporate (Avilla Partners)', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Same brand as Avilla Camel Back Ranch. Email confirmed. Bundle outreach with Avilla Camel Back.', tags: ['Email Confirmed', 'BTR', 'Bundle Outreach'], status: 'not-started', score: { proximity: 5, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 'apt-12', name: 'Palm Valley Villas', type: 'apt', category: 'Apartment Complex', tier: 4, location: 'Buckeye, AZ', address: '15500 W Waddell Rd', phone: '(623) 214-2600', email: '', website: '', rating: 3.8, reviews: 67, dist: '6.0 mi', ownership: 'Unknown — verify', risk: 'N/A', overflow: 'N/A', referral: 'Low', confidence: 'Low', notes: 'Farther distance; fewer data points. Deprioritize.', tags: ['Lower Priority'], status: 'not-started', score: { proximity: 3, overlap: 5, reputation: 6, volumePotential: 5 } },
-
-      // ── REALTORS ──
-      { id: 're-01', name: 'The Jeannie Hem Team', type: 'realtor', category: 'Realty ONE Group', tier: 1, location: 'Avondale / Goodyear', address: '', phone: '(623) 696-0000', email: 'jeanniehemteam@gmail.com', website: 'https://jeanniehemteam.com', rating: 4.9, reviews: 87, dist: '1 mi', ownership: 'Team (3+ agents)', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Top producing team. Relocation certified. New homeowners = prime Pete & Mac\'s acquisition.', tags: ['Email Confirmed', 'Top Producer', 'Team'], status: 'not-started', score: { proximity: 9, overlap: 8, reputation: 9, volumePotential: 9 } },
-      { id: 're-02', name: 'Wendy Walker', type: 'realtor', category: 'West USA Realty', tier: 1, location: 'Avondale / Goodyear', address: '', phone: '(623) 776-0000', email: '', website: 'https://westusar.com', rating: 4.8, reviews: 54, dist: '1.5 mi', ownership: 'Solo / Unknown', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'High volume W Valley agent. Verify agent-specific contact before outreach.', tags: ['Top Producer', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 8, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 're-03', name: 'Matt and Joan Rampey', type: 'realtor', category: 'Keller Williams West Valley', tier: 1, location: 'Goodyear / Litchfield Park', address: '', phone: '(623) 935-0000', email: '', website: 'https://kwwestvalley.com', rating: 4.9, reviews: 112, dist: '2 mi', ownership: 'Team (2 named agents)', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'KW top team — new construction buyer focus. Verify direct email.', tags: ['Team', 'New Construction'], status: 'not-started', score: { proximity: 8, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 're-04', name: 'Elaine Barrett', type: 'realtor', category: 'Re/MAX Professionals', tier: 1, location: 'Avondale area', address: '', phone: '(623) 322-0000', email: '', website: 'https://remax.com', rating: 4.8, reviews: 76, dist: '1.8 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'Re/MAX top producer. Verify agent profile and email via Re/MAX before outreach.', tags: ['Top Producer', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 8, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 're-05', name: 'The Shirley Team', type: 'realtor', category: 'HomeSmart', tier: 1, location: 'Avondale / Goodyear', address: '', phone: '(623) 293-0000', email: '', website: 'https://homesmart.com', rating: 4.8, reviews: 89, dist: '3 mi', ownership: 'Team', risk: 'N/A', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'HomeSmart covers exactly the Pete & Mac\'s catchment area. Verify team lead email.', tags: ['Team', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 7, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 're-06', name: 'Ana Roque', type: 'realtor', category: 'Realty ONE Group', tier: 2, location: 'Avondale area', address: '', phone: '(623) 440-0000', email: '', website: '', rating: 4.7, reviews: 43, dist: '1.5 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Low', notes: 'Bilingual (Spanish/English). Verify agent page and email via Realty ONE.', tags: ['Bilingual', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 8, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 're-07', name: 'Craig Tann', type: 'realtor', category: 'HomeSmart Elite', tier: 2, location: 'Avondale area', address: '', phone: '(623) 850-0000', email: '', website: 'https://homesmartelite.com', rating: 4.8, reviews: 56, dist: '2.5 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Low', notes: 'HomeSmart Elite. Verify agent page and email before outreach.', tags: ['⚠️ Verify Email'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 're-08', name: 'Carrie Lyons', type: 'realtor', category: 'Realty ONE Group', tier: 2, location: 'Palm Valley / Litchfield Park', address: '', phone: '(623) 466-0000', email: '', website: '', rating: 4.7, reviews: 38, dist: '3 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Low', notes: 'Palm Valley/Litchfield Park focus. Verify email via Realty ONE.', tags: ['Palm Valley', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 're-09', name: 'Jennifer Ansari', type: 'realtor', category: 'Berkshire Hathaway AZ Properties', tier: 2, location: 'Avondale area', address: '', phone: '(623) 535-0000', email: '', website: 'https://bhhsaz.com', rating: 4.8, reviews: 48, dist: '2.8 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'Medium', confidence: 'Low', notes: 'BHHS = higher-income buyers. Verify agent email via BHHSAZ.com.', tags: ['High-Income Buyers', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 7, overlap: 7, reputation: 8, volumePotential: 7 } },
-      { id: 're-10', name: 'Scott Emett', type: 'realtor', category: 'Long Realty West Valley', tier: 2, location: 'Goodyear / Buckeye', address: '', phone: '(623) 882-0000', email: '', website: 'https://longrealty.com', rating: 4.6, reviews: 32, dist: '4 mi', ownership: 'Solo', risk: 'N/A', overflow: 'N/A', referral: 'Low-Medium', confidence: 'Low', notes: 'Goodyear/Buckeye expansion market. Deprioritize until Tier 1 realtors are active.', tags: ['Lower Priority', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 6, overlap: 6, reputation: 7, volumePotential: 6 } },
-
-      // ── TRAINERS ──
-      { id: 'tr-01', name: 'Zoom Room Dog Training – Goodyear', type: 'pet-services', category: 'Group / Obedience Training', tier: 1, location: 'Goodyear, AZ 85395', address: '2415 N Litchfield Rd Suite 108', phone: '(623) 256-3647', email: '', website: 'https://zoomroom.com/goodyear', rating: 4.8, reviews: 312, dist: '2.5 mi', ownership: 'Franchise (Zoom Room)', risk: 'Low — Training only', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Training only confirmed on website. 4.8 / 312 reviews. 2.5 mi. Franchise with local operations.', tags: ['Franchise', 'Low Risk'], status: 'not-started', score: { proximity: 7, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 'tr-02', name: 'Goodyear Dog Training – Off Leash K9', type: 'pet-services', category: 'Board-and-Train / Private', tier: 1, location: 'Goodyear, AZ 85338', address: 'Goodyear area', phone: '(602) 786-3647', email: '', website: 'https://offleashk9training.com/arizona', rating: 4.9, reviews: 187, dist: '3 mi', ownership: 'Franchise (Off Leash K9)', risk: 'High — Board-and-train', overflow: 'Boarding overflow — clients needing lodging during training', referral: 'Medium', confidence: 'High', notes: '⚠️ HIGH COMPETITIVE RISK (boarding overlap) — BUT highest overflow potential. Position as boarding-while-training partner.', tags: ['⚠️ Boarding Risk', 'High Overflow'], status: 'not-started', score: { proximity: 7, overlap: 6, reputation: 9, volumePotential: 7 } },
-      { id: 'tr-03', name: 'Arizona Dog Sports', type: 'pet-services', category: 'Sport / Performance Training', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 444-0000', email: 'info@azdogsports.com', website: 'https://azdogsports.com', rating: 4.7, reviews: 134, dist: '2.8 mi', ownership: 'Independent', risk: 'Low — Training/sport only', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Training/sport only confirmed on website. Competition dog owners = high-engagement, premium clients.', tags: ['Email Confirmed', 'Independent', 'Sport Dogs'], status: 'not-started', score: { proximity: 7, overlap: 8, reputation: 8, volumePotential: 7 } },
-      { id: 'tr-04', name: 'Paws & Learn Dog Training', type: 'pet-services', category: 'Private Training', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 932-0000', email: '', website: '', rating: 4.5, reviews: 67, dist: '1.5 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ MUST VERIFY services on website before outreach. 1.5 mi local trainer.', tags: ['Close Proximity', '⚠️ Verify Risk'], status: 'not-started', score: { proximity: 9, overlap: 7, reputation: 7, volumePotential: 6 } },
-      { id: 'tr-05', name: 'Sit Means Sit – West Valley', type: 'pet-services', category: 'Board-and-Train / Obedience', tier: 2, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(623) 224-7484', email: '', website: 'https://sitmeanssit.com/west-valley', rating: 4.8, reviews: 243, dist: '3.5 mi', ownership: 'Franchise (Sit Means Sit)', risk: 'High — Board-and-train', overflow: 'Boarding overflow', referral: 'Medium', confidence: 'High', notes: '⚠️ HIGH COMPETITIVE RISK (board-and-train). Position as overflow partner only.', tags: ['⚠️ Boarding Risk', 'High Overflow', 'Franchise'], status: 'not-started', score: { proximity: 6, overlap: 6, reputation: 9, volumePotential: 6 } },
-      { id: 'tr-06', name: 'Haute Dawg Training', type: 'pet-services', category: 'Private / Luxury Training', tier: 2, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(602) 492-0000', email: 'info@hautedawgtraining.com', website: 'https://hautedawgtraining.com', rating: 4.9, reviews: 89, dist: '5 mi', ownership: 'Independent', risk: 'Low — Training only', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Training only confirmed on website. 4.9 stars. Active social media. Independent premium trainer.', tags: ['Email Confirmed', 'Independent', 'Premium'], status: 'not-started', score: { proximity: 5, overlap: 8, reputation: 9, volumePotential: 7 } },
-      { id: 'tr-07', name: 'Alpha Paws Dog Training – AZ', type: 'pet-services', category: 'Private Training', tier: 2, location: 'Avondale area', address: '', phone: '(623) 500-0000', email: '', website: '', rating: 4.4, reviews: 45, dist: '2 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ MUST VERIFY services on website before outreach. Confirm no boarding offered.', tags: ['⚠️ Verify Risk'], status: 'not-started', score: { proximity: 8, overlap: 6, reputation: 7, volumePotential: 6 } },
-      { id: 'tr-08', name: 'PetSmart Training – Avondale', type: 'pet-services', category: 'In-Store Training', tier: 4, location: 'Avondale, AZ', address: '10250 W McDowell Rd', phone: '(623) 478-0200', email: '', website: 'https://petsmart.com', rating: 3.8, reviews: 134, dist: '3.5 mi', ownership: 'Corporate (PetSmart)', risk: 'High — PetSmart/boarding', overflow: 'N/A — Competitor environment', referral: 'Low', confidence: 'High', notes: '⚠️ HIGH COMPETITIVE RISK — PetSmart confirms grooming + hotel. Avoid as partner.', tags: ['⚠️ Competitor', 'Corporate', 'Lower Priority'], status: 'not-started', score: { proximity: 6, overlap: 3, reputation: 6, volumePotential: 3 } },
-
-      // ── GROOMERS ──
-      { id: 'gr-01', name: 'Pets Are People Too – Avondale', type: 'pet-services', category: 'Full-Service Grooming', tier: 1, location: 'Avondale, AZ 85392', address: '10250 W McDowell Rd Suite 3', phone: '(623) 932-8800', email: '', website: 'https://petsarepeopletooaz.com', rating: 4.8, reviews: 203, dist: '3.2 mi', ownership: 'Independent', risk: 'Low — Grooming only', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'GROOMING ONLY — zero competitive conflict. Website confirmed. 4.8 / 203 reviews.', tags: ['Independent', 'Low Risk', 'High Potential'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 9, volumePotential: 8 } },
-      { id: 'gr-02', name: "Waggin' Tails Grooming", type: 'pet-services', category: 'Grooming Studio', tier: 1, location: 'Avondale, AZ 85392', address: '13034 W Rancho Santa Fe Blvd area', phone: '(623) 932-0000', email: '', website: '', rating: 4.9, reviews: 87, dist: '0.3 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'High', confidence: 'Low', notes: '⚠️ VERIFY services on website before outreach. 0.3 mi — same street as Pete & Mac\'s. Top proximity groomer.', tags: ['Same Street', '⚠️ Verify Risk', 'Top Priority'], status: 'not-started', score: { proximity: 10, overlap: 8, reputation: 9, volumePotential: 8 } },
-      { id: 'gr-03', name: 'The Barking Lot Grooming', type: 'pet-services', category: 'Full-Service Grooming', tier: 1, location: 'Avondale, AZ', address: '11830 W Indian School Rd', phone: '(623) 935-9800', email: 'info@thebarkinglotgrooming.com', website: 'https://thebarkinglotgrooming.com', rating: 4.7, reviews: 145, dist: '2.6 mi', ownership: 'Independent', risk: 'Low — Grooming only', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'GROOMING ONLY — confirmed on website. Email confirmed. 2.6 mi. Excellent partner candidate.', tags: ['Email Confirmed', 'Independent', 'Low Risk'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 8, volumePotential: 7 } },
-      { id: 'gr-04', name: 'Dirty Dawg Grooming', type: 'pet-services', category: 'Grooming Studio', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 877-0000', email: '', website: '', rating: 4.5, reviews: 112, dist: '3.9 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ VERIFY services on website before outreach. GBP + Instagram presence.', tags: ['Independent', '⚠️ Verify Risk'], status: 'not-started', score: { proximity: 6, overlap: 7, reputation: 7, volumePotential: 7 } },
-      { id: 'gr-05', name: 'K9 Styles Grooming', type: 'pet-services', category: 'Grooming Studio', tier: 2, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 535-0000', email: '', website: '', rating: 4.3, reviews: 78, dist: '2.0 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ VERIFY services on website before outreach. GBP only — no website found.', tags: ['⚠️ Verify Risk'], status: 'not-started', score: { proximity: 8, overlap: 7, reputation: 7, volumePotential: 6 } },
-      { id: 'gr-06', name: 'Luxury Paws Grooming', type: 'pet-services', category: 'Premium Grooming Studio', tier: 2, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(623) 535-0000', email: '', website: '', rating: 4.7, reviews: 67, dist: '3.8 mi', ownership: 'Independent', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ VERIFY services on website before outreach. Premium clientele overlap likely.', tags: ['Premium', '⚠️ Verify Risk'], status: 'not-started', score: { proximity: 6, overlap: 8, reputation: 8, volumePotential: 7 } },
-      { id: 'gr-07', name: 'Groom Room – Goodyear', type: 'pet-services', category: 'Grooming Studio', tier: 2, location: 'Goodyear, AZ', address: 'Goodyear area', phone: '(623) 932-0000', email: '', website: '', rating: 4.4, reviews: 89, dist: '3.5 mi', ownership: 'Unknown — verify', risk: 'Unknown — verify', overflow: 'Pending', referral: 'Medium', confidence: 'Low', notes: '⚠️ VERIFY services on website before outreach. Confirm no boarding offered.', tags: ['⚠️ Verify Risk'], status: 'not-started', score: { proximity: 6, overlap: 7, reputation: 7, volumePotential: 6 } },
-      { id: 'gr-08', name: 'PetSmart Grooming – Avondale', type: 'pet-services', category: 'In-Store Grooming', tier: 4, location: 'Avondale, AZ', address: '10250 W McDowell Rd', phone: '(623) 478-0200', email: '', website: 'https://petsmart.com', rating: 3.9, reviews: 178, dist: '3.5 mi', ownership: 'Corporate (PetSmart)', risk: 'High — PetSmart offers hotel', overflow: 'N/A', referral: 'Low', confidence: 'High', notes: '⚠️ HIGH COMPETITIVE RISK — PetSmart.com confirms grooming + hotel. Avoid as partner.', tags: ['⚠️ Competitor', 'Corporate', 'Lower Priority'], status: 'not-started', score: { proximity: 6, overlap: 3, reputation: 6, volumePotential: 3 } },
-      { id: 'ps-01', name: 'RunBuddy Mobile', type: 'pet-services', category: 'Mobile Pet Services', tier: 1, location: 'Avondale, AZ', address: 'Mobile — serves Avondale/Goodyear area', phone: '', email: '', website: 'https://runbuddymobile.com', rating: 4.9, reviews: 0, dist: 'Mobile', ownership: 'Independent', risk: 'Low — Services only', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'Mobile pet services provider serving the Avondale/Goodyear area. High referral potential — mobile providers and boarding facilities are natural complements with zero competitive overlap.', tags: ['Mobile', 'Independent', 'Top Priority'], status: 'not-started', score: { proximity: 8, overlap: 7, reputation: 9, volumePotential: 7 } },
-
-      // ── RESCUE & BREEDER ──
-      { id: 'rsc-01', name: 'Maricopa County Animal Care & Control – West', type: 'rescue', category: 'Government / Municipal Shelter', tier: 1, location: 'Mesa, AZ 85201', address: '2630 W 8th St', phone: '(602) 506-7387', email: 'mcacc@maricopa.gov', website: 'https://pets.maricopa.gov', rating: 4.1, reviews: 312, dist: '12 mi', ownership: 'Government (Maricopa County)', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Largest AZ animal services org. Email confirmed. 445 adoptions/yr. New adopters = immediate boarding need.', tags: ['Email Confirmed', 'Government', 'High Volume'], status: 'not-started', score: { proximity: 3, overlap: 9, reputation: 8, volumePotential: 9 } },
-      { id: 'rsc-02', name: 'Arizona Animal Welfare League (AAWL)', type: 'rescue', category: 'No-Kill Private Shelter', tier: 1, location: 'Phoenix, AZ 85034', address: '25 N 40th St', phone: '(602) 273-6852', email: 'info@aawl.org', website: 'https://aawl.org', rating: 4.7, reviews: 456, dist: '10.5 mi', ownership: 'Nonprofit 501(c)(3)', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Largest no-kill shelter in AZ. Email confirmed. 789 adoptions/yr. Strong community brand.', tags: ['Email Confirmed', 'Nonprofit', 'High Volume'], status: 'not-started', score: { proximity: 3, overlap: 9, reputation: 9, volumePotential: 9 } },
-      { id: 'rsc-03', name: 'Rescue Me AZ', type: 'rescue', category: 'Foster-Based Local Rescue', tier: 1, location: 'Avondale, AZ', address: '1 mi from Pete & Mac\'s', phone: '(623) 500-0000', email: 'info@rescuemeaz.org', website: 'https://rescuemeaz.org', rating: 4.5, reviews: 89, dist: '1 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'Medium', notes: 'LOCAL Avondale rescue 1 mi. Email confirmed. Foster-based = immediate new-adopter referrals.', tags: ['Email Confirmed', 'Local', 'Top Priority'], status: 'not-started', score: { proximity: 9, overlap: 9, reputation: 8, volumePotential: 7 } },
-      { id: 'rsc-04', name: 'West Valley Humane Society', type: 'rescue', category: 'Regional Nonprofit Shelter', tier: 2, location: 'Buckeye, AZ', address: 'Buckeye area', phone: '(480) 497-8296', email: 'info@westvalleyhumane.org', website: 'https://westvalleyhs.org', rating: 4.4, reviews: 178, dist: '14 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'High', notes: '14 mi but serves Avondale residents. Email confirmed. 312 adoptions/yr.', tags: ['Email Confirmed', 'Nonprofit'], status: 'not-started', score: { proximity: 2, overlap: 8, reputation: 8, volumePotential: 7 } },
-      { id: 'rsc-05', name: 'Arizona Humane Society', type: 'rescue', category: 'Statewide Nonprofit Shelter', tier: 2, location: 'Phoenix, AZ', address: 'Multiple locations', phone: '(602) 997-7585', email: 'info@azhumane.org', website: 'https://azhumane.org', rating: 4.5, reviews: 567, dist: '11 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Major AZ brand. Email confirmed. 1,203 outcomes/yr. AZHumane.org shows strong web presence.', tags: ['Email Confirmed', 'Major Brand', 'Statewide'], status: 'not-started', score: { proximity: 3, overlap: 8, reputation: 9, volumePotential: 9 } },
-      { id: 'rsc-06', name: 'Southwest German Shepherd Rescue', type: 'rescue', category: 'Breed-Specific Rescue', tier: 2, location: 'Phoenix, AZ', address: 'Phoenix area', phone: '(602) 863-0000', email: 'info@southwestgsd.org', website: 'https://southwestgsd.org', rating: 4.6, reviews: 78, dist: '6 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'High', notes: 'GSD owners = high-engagement, high-spend. Email confirmed. ~78 adoptions/yr.', tags: ['Email Confirmed', 'Breed-Specific', 'GSD'], status: 'not-started', score: { proximity: 4, overlap: 8, reputation: 8, volumePotential: 7 } },
-      { id: 'rsc-07', name: 'AZ Goldies Rescue', type: 'rescue', category: 'Breed-Specific Rescue', tier: 2, location: 'Avondale area', address: '', phone: '(623) 500-0000', email: '', website: '', rating: 4.4, reviews: 45, dist: '3 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'Low', notes: 'Goldens are among Pete & Mac\'s highest-spend boarding breed. Facebook-primary presence.', tags: ['Golden Retriever', 'Breed-Specific', '⚠️ Verify Email'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 7, volumePotential: 8 } },
-      { id: 'rsc-08', name: 'Desert Sky Doodle Breeders', type: 'rescue', category: 'AKC Specialty Breeder', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 932-0000', email: '', website: '', rating: 4.8, reviews: 34, dist: '2.5 mi', ownership: 'AKC-affiliated', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'Low', notes: 'Doodles are #1 boarding breed by volume at most resorts. 2.5 mi. ~38 pups/yr.', tags: ['Breeder', 'Doodles', 'High Value'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 8, volumePotential: 9 } },
-      { id: 'rsc-09', name: 'Sun Valley Labrador Breeders', type: 'rescue', category: 'AKC Specialty Breeder', tier: 1, location: 'Avondale, AZ', address: 'Avondale area', phone: '(623) 935-0000', email: '', website: '', rating: 4.7, reviews: 28, dist: '3 mi', ownership: 'AKC-registered', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'Low', notes: 'Labs are top boarding breed nationally. 3 mi. ~27 pups/yr.', tags: ['Breeder', 'Labrador', 'High Value'], status: 'not-started', score: { proximity: 7, overlap: 9, reputation: 8, volumePotential: 8 } },
-      { id: 'rsc-10', name: 'Saving Paws Rescue AZ', type: 'rescue', category: 'Foster-Based Local Rescue', tier: 2, location: 'Avondale area', address: '', phone: '(623) 877-0000', email: 'info@savingpawsaz.org', website: '', rating: 4.3, reviews: 56, dist: '2 mi', ownership: 'Nonprofit', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'Medium', notes: 'Foster-based W Valley rescue. Email confirmed. ~89 adoptions/yr.', tags: ['Email Confirmed', 'Local', 'Foster-Based'], status: 'not-started', score: { proximity: 8, overlap: 8, reputation: 7, volumePotential: 6 } },
-      // ── MISCELLANEOUS ──
-      { id: 'misc-01', name: 'Modern Grind Coffee', type: 'misc', category: 'Coffee Shop — Adjacent Business', tier: 1, location: 'Avondale, AZ', address: 'Next door to Pete & Mac\'s', phone: '', email: '', website: '', rating: 4.8, reviews: 0, dist: '0.1 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Coffee shop next door. Walk-in traffic crossover opportunity. Mutual referral potential — dog owners are coffee buyers. Introduce in person.', tags: ['Walking Distance', 'Active Partner'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
-      { id: 'misc-02', name: 'Local Yoga Studio', type: 'misc', category: 'Wellness — Active Partnership', tier: 1, location: 'Avondale, AZ', address: 'Down the street', phone: '', email: '', website: '', rating: 4.7, reviews: 0, dist: '0.5 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'Medium', confidence: 'High', notes: 'Existing partnership per Krystle. Dog-owner demographic overlap strong (active, wellness-focused). Cross-referral via flyers / social.', tags: ['Active Partner', 'Walking Distance'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
-      { id: 'misc-03', name: 'Dog Treat Bakery', type: 'misc', category: 'Pet Specialty Retail', tier: 1, location: 'Avondale, AZ', address: 'Across the street', phone: '', email: '', website: '', rating: 4.9, reviews: 0, dist: '0.2 mi', ownership: 'Independent', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing partnership per Krystle. Across the street. Dog treat bakery = 100% shared clientele. Co-marketing potential (welcome bags, refer-a-friend).', tags: ['Active Partner', 'Walking Distance', 'Shared Clientele'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
-      { id: 'misc-04', name: 'Luke Air Force Base', type: 'misc', category: 'Military Installation — Community Partner', tier: 2, location: 'Glendale, AZ 85309', address: 'Luke AFB, AZ', phone: '', email: '', website: 'https://lukeafb.af.mil', rating: 0, reviews: 0, dist: '8 mi', ownership: 'U.S. Government', risk: 'Low', overflow: 'N/A', referral: 'High', confidence: 'High', notes: 'Existing community partnership per Krystle. Military families relocate frequently — high boarding demand during deployments and moves. Pet-friendly base.', tags: ['Active Partner', 'Military', 'High Volume'], status: 'partner', score: { revenuePotential: null, clientOverlap: null, decisionIndependence: null } },
-    ];
+    const SEED_LEADS = []; // Sheet is source of truth — populated by loadLeadsFromServer()
 
     let LEADS = CENTER_ID === '232' ? SEED_LEADS : [];
 
@@ -2849,7 +2808,19 @@
           if (!LEADS.find(x => x.id === l.id)) LEADS.push(l);
           if (!SEED_LEADS.find(x => x.id === l.id)) SEED_LEADS.push(l);
         });
-      } catch (e) { }
+        setDataStatus(true);
+      } catch (e) {
+        setDataStatus(false);
+      }
+    }
+
+    async function refreshLeads() {
+      document.getElementById('data-label').textContent = 'Refreshing…';
+      SEED_LEADS.length = 0;
+      LEADS.length = 0;
+      await loadLeadsFromServer();
+      renderGrid();
+      updateStats();
     }
 
     /* ── LOAD CENTER DISPLAY INFO ── */
@@ -3037,27 +3008,43 @@
     /* ── SUB-TYPE MATCHERS ── */
     const SUBTYPE_MATCH = {
       vet: {
-        primary: l => !/Urgent Care|Emergency|24hr|Critical Care/i.test(l.category),
-        urgent: l => /Urgent Care/i.test(l.category) && !/Emergency|24hr/i.test(l.category),
-        emergency: l => /Emergency|24hr|Critical Care/i.test(l.category),
+        'primary-care': l => /Primary Care|General Practice/i.test(l.category),
+        'urgent-care': l => /Urgent Care/i.test(l.category),
+        'emergency': l => /Emergency|24hr|Critical Care/i.test(l.category),
+        'specialty': l => /Specialty/i.test(l.category),
+        'mobile-vet': l => /Mobile Vet/i.test(l.category),
       },
       apt: {
-        luxury: l => /Luxury/i.test(l.category),
-        btr: l => /Built-to-Rent|BTR/i.test(l.category),
-        standard: l => !/Luxury|Built-to-Rent|BTR/i.test(l.category),
+        'luxury': l => /Luxury/i.test(l.category),
+        'mid-range': l => /Mid-Range/i.test(l.category),
+        'affordable': l => /Affordable/i.test(l.category),
+        'student-housing': l => /Student/i.test(l.category),
       },
       realtor: {
-        team: l => /Team|Group|Partners|Associates/i.test(l.ownership || l.category || ''),
-        solo: l => !/Team|Group|Partners|Associates/i.test(l.ownership || l.category || ''),
+        'residential': l => /^Residential$/i.test(l.category),
+        'relocation-specialist': l => /Relocation Specialist/i.test(l.category),
+        'military-relocation': l => /Military Relocation/i.test(l.category),
+        'new-construction': l => /New Construction/i.test(l.category),
+        'luxury': l => /^Luxury$/i.test(l.category),
       },
       'pet-services': {
-        training: l => /Training|Train/i.test(l.category),
-        grooming: l => /Grooming|Groom/i.test(l.category) && !/Mobile/i.test(l.category),
-        mobile: l => /Mobile/i.test(l.category),
+        'grooming': l => /Grooming|Groom|Bath/i.test(l.category),
+        'training': l => /Training|Train/i.test(l.category),
+        'other': l => /Other Pet Services/i.test(l.category),
       },
       rescue: {
-        rescue: l => !/Breeder/i.test(l.category),
-        breeder: l => /Breeder/i.test(l.category),
+        'rescue-shelter': l => /Rescue|Shelter/i.test(l.category) && !/Foster/i.test(l.category),
+        'foster-network': l => /Foster/i.test(l.category),
+        'breeder': l => /^Breeder$/i.test(l.category),
+      },
+      misc: {
+        'dog-friendly': l => /Dog-Friendly/i.test(l.category),
+        'hotel': l => /Hotel/i.test(l.category),
+        'pet-retail': l => /Pet Retail/i.test(l.category),
+        'dog-park': l => /Dog Park/i.test(l.category),
+        'military': l => /Military/i.test(l.category),
+        'pet-photography': l => /Pet Photography/i.test(l.category),
+        'other': l => /^Other$/i.test(l.category),
       },
     };
 
@@ -3098,12 +3085,12 @@
 
     /* ── SUBTYPE PILL LABELS ── */
     const SUBTYPE_LABELS = {
-      vet: { primary: 'Primary Care', urgent: 'Urgent Care', emergency: 'Emergency' },
-      apt: { luxury: 'Luxury', standard: 'Standard', btr: 'Built-to-Rent' },
-      realtor: { team: 'Teams', solo: 'Solo Agents' },
-      'pet-services': { training: 'Trainers', grooming: 'Groomers', mobile: 'Mobile' },
-      rescue: { rescue: 'Rescues & Shelters', breeder: 'Breeders' },
-      misc: {},
+      vet: { 'primary-care': 'Primary Care', 'urgent-care': 'Urgent Care', 'emergency': 'Emergency / 24hr', 'specialty': 'Specialty', 'mobile-vet': 'Mobile Vet' },
+      apt: { 'luxury': 'Luxury', 'mid-range': 'Mid-Range', 'affordable': 'Affordable', 'student-housing': 'Student Housing' },
+      realtor: { 'residential': 'Residential', 'relocation-specialist': 'Relocation Specialist', 'military-relocation': 'Military Relocation', 'new-construction': 'New Construction', 'luxury': 'Luxury' },
+      'pet-services': { 'grooming': 'Grooming', 'training': 'Training', 'other': 'Other Pet Services' },
+      rescue: { 'rescue-shelter': 'Rescue/Shelter', 'foster-network': 'Foster Network', 'breeder': 'Breeder' },
+      misc: { 'dog-friendly': 'Dog-Friendly Venue', 'hotel': 'Hotel / Hospitality', 'pet-retail': 'Pet Retail / Supply', 'dog-park': 'Dog Park / Recreation', 'military': 'Military / Base Partnership', 'pet-photography': 'Pet Photography', 'other': 'Other' },
     };
 
     function renderSubtypePills(type) {
@@ -3328,15 +3315,19 @@
       <div class="info-grid">
         ${lead.location ? `<div><div class="info-field-label">Location</div><div class="info-field-val">${lead.location}</div></div>` : ''}
         ${lead.dist ? `<div><div class="info-field-label">Distance</div><div class="info-field-val">${lead.dist}</div></div>` : ''}
+        ${lead.contact ? `<div><div class="info-field-label">Contact Name</div><div class="info-field-val">${lead.contact}</div></div>` : ''}
         ${lead.phone ? `<div><div class="info-field-label">Phone</div><div class="info-field-val">${lead.phone}</div></div>` : ''}
         ${lead.email && !lead.email.startsWith('Unknown') ? `<div class="full"><div class="info-field-label">Email</div><div class="info-field-val"><a href="mailto:${lead.email}" style="color:var(--accent)">${lead.email}</a></div></div>` : ''}
         ${lead.website ? `<div class="full"><div class="info-field-label">Website</div><div class="info-field-val"><a href="${lead.website}" target="_blank" style="color:var(--accent)">${lead.website}</a></div></div>` : ''}
+        ${(lead.instagram || lead.facebook) ? `<div class="full"><div class="info-field-label">Social</div><div class="info-field-val" style="display:flex;gap:10px;flex-wrap:wrap;">${lead.instagram ? `<a href="${lead.instagram}" target="_blank" style="color:var(--accent)">📸 Instagram</a>` : ''}${lead.facebook ? `<a href="${lead.facebook}" target="_blank" style="color:var(--accent)">📘 Facebook</a>` : ''}</div></div>` : ''}
       </div></div>
     <div class="info-section"><div class="info-section-title">Intelligence</div>
       <div class="info-grid">
         ${lead.ownership ? `<div><div class="info-field-label">Ownership</div><div class="info-field-val">${lead.ownership}</div></div>` : ''}
         ${lead.risk ? `<div><div class="info-field-label">Competitive Risk</div><div class="info-field-val">${lead.risk.split('—')[0].trim()}</div></div>` : ''}
+        ${lead.confidence ? `<div><div class="info-field-label">Data Confidence</div><div class="info-field-val">${lead.confidence}</div></div>` : ''}
         ${lead.overflow && lead.overflow !== 'N/A' && !lead.overflow.startsWith('N/A') ? `<div class="full"><div class="info-field-label">Overflow Potential</div><div class="info-field-val">${lead.overflow}</div></div>` : ''}
+        ${lead.referral && lead.referral !== 'N/A' && !lead.referral.startsWith('N/A') ? `<div class="full"><div class="info-field-label">Referral Potential</div><div class="info-field-val">${lead.referral}</div></div>` : ''}
       </div>
       ${lead.notes ? `<div class="intel-box">${lead.notes}</div>` : ''}
     </div>
@@ -3769,12 +3760,12 @@
 
     /* ── ADD LEAD MODAL ── */
     const TYPE_CATEGORIES = {
-      vet: ['General Practice', 'Emergency / 24hr', 'Specialty – Ophthalmology', 'Specialty – Cardiology', 'Specialty – Oncology', 'Urgent Care', 'Mobile Vet', 'Other'],
-      apt: ['Luxury Apartment', 'Mid-Range Apartment', 'Garden Style', 'High-Rise', 'Pet-Friendly Community', 'New Development', 'Other'],
-      realtor: ['Independent Agent', 'Team Lead', 'Property Manager', 'Relocation Specialist', 'New Construction', 'Other'],
-      'pet-services': ['Group / Obedience Training', 'Board-and-Train / Private', 'In-Home Training', 'Sport / Performance Training', 'Full-Service Grooming', 'Mobile Grooming', 'Specialty / Breed Grooming', 'Spa / Luxury Grooming', 'Mobile Pet Services', 'In-Store Training', 'In-Store (Chain)', 'Other'],
-      rescue: ['Local Rescue', 'Foster-Based Rescue', 'Breed-Specific Rescue', 'AKC Specialty Breeder', 'Municipal Shelter', 'Other'],
-      misc: ['Coffee Shop', 'Yoga / Fitness Studio', 'Dog Treat Bakery / Pet Retail', 'Military / Base Partnership', 'Restaurant / Bar', 'Hotel / Hospitality', 'Real Estate Office', 'Other'],
+      vet: ['Primary Care', 'Urgent Care', 'Emergency / 24hr', 'Specialty', 'Mobile Vet'],
+      apt: ['Luxury', 'Mid-Range', 'Affordable', 'Student Housing'],
+      realtor: ['Residential', 'Relocation Specialist', 'Military Relocation', 'New Construction', 'Luxury'],
+      'pet-services': ['Grooming', 'Training', 'Other Pet Services'],
+      rescue: ['Rescue/Shelter', 'Foster Network', 'Breeder'],
+      misc: ['Dog-Friendly Venue', 'Hotel / Hospitality', 'Pet Retail / Supply', 'Dog Park / Recreation', 'Military / Base Partnership', 'Pet Photography', 'Other'],
     };
     function updateCategoryOptions() {
       const type = document.getElementById('al-type').value;
@@ -3981,7 +3972,7 @@
         });
         if (newLeads.length > 0) {
           // Merge: sheet data = identity fields, state = localStorage/server
-          const IDENTITY = ['name', 'category', 'phone', 'email', 'website', 'address', 'dist', 'location', 'ownership', 'risk', 'overflow', 'referral', 'confidence', 'notes', 'rating', 'reviews'];
+          const IDENTITY = ['name', 'category', 'phone', 'email', 'website', 'address', 'dist', 'location', 'contact', 'ownership', 'risk', 'overflow', 'referral', 'confidence', 'notes', 'rating', 'reviews', 'instagram', 'facebook'];
           newLeads.forEach(nl => {
             const existing = SEED_LEADS.find(s => s.id === nl.id);
             if (existing) {
@@ -4028,16 +4019,20 @@
       const name = d['Clinic Name'] || d['Complex Name'] || d['Agent / Team Name'] || d['Business / Trainer Name'] || d['Business Name'] || d['Organization Name'] || '';
       if (!name) return null;
       const id = `${type}-sheet-${idx}`;
+      const rawDist = (d['Distance from Center (Miles)'] || d['Miles'] || d['Distance'] || '').toString().replace(/\s*mi$/i, '').trim();
       return {
-        id, name, type, category: d['Clinic Type'] || d['Type'] || d['Training Style'] || d['Rescue or Breeder'] || TYPE_LABEL[type],
+        id, name, type, category: d['Clinic Type'] || d['Type'] || d['Specialization'] || d['Training Style'] || d['Rescue or Breeder'] || d['Category'] || TYPE_LABEL[type],
         tier: parseTier(d['Priority Tier']),
         location: d['City/Zip'] || '', address: d['Address'] || '',
         phone: d['Phone'] || '', email: d['Best Email'] || '', website: d['Website'] || '',
+        contact: d['Contact Name'] || '',
         rating: parseFloat(d['Rating']) || 0, reviews: parseInt(d['Reviews']) || 0,
-        dist: (d['Distance from Center (Miles)'] || '') + 'mi',
+        dist: rawDist ? rawDist + ' mi' : '',
         ownership: d['Ownership Type'] || d['Management Type'] || d['Org / Registration Type'] || '',
         risk: d['Competitive Risk'] || '', overflow: d['Overflow Potential'] || '', referral: d['Referral Potential'] || '',
         confidence: d['AI Data Confidence Score'] || '', notes: d['Notes'] || d['Key Facts'] || '',
+        instagram: d['Instagram'] || d['Instagram URL'] || '',
+        facebook: d['Facebook'] || d['Facebook URL'] || '',
         tags: [], status: 'not-started',
         score: { proximity: 7, overlap: 7, reputation: 7, volumePotential: 7 }
       };
