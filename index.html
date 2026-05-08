@@ -2240,9 +2240,6 @@
             <div class="nav-sub-item" onclick="filterBySubType('vet','specialty',this)">
               <div class="nav-sub-dot"></div> Specialty
             </div>
-            <div class="nav-sub-item" onclick="filterBySubType('vet','mobile-vet',this)">
-              <div class="nav-sub-dot"></div> Mobile Vet
-            </div>
           </div>
         </div>
 
@@ -3012,7 +3009,6 @@
         'urgent-care': l => /Urgent Care/i.test(l.category),
         'emergency': l => /Emergency|24hr|Critical Care/i.test(l.category),
         'specialty': l => /Specialty/i.test(l.category),
-        'mobile-vet': l => /Mobile Vet/i.test(l.category),
       },
       apt: {
         'luxury': l => /Luxury/i.test(l.category),
@@ -3068,6 +3064,20 @@
         return;
       }
       grid.innerHTML = filtered.map(cardHtml).join('');
+      updateSubFilterVisibility();
+    }
+
+    function updateSubFilterVisibility() {
+      if (!currentType) return;
+      const typeLeads = LEADS.filter(l => l.type === currentType || (currentType === 'pet-services' && (l.type === 'trainer' || l.type === 'groomer')));
+      document.querySelectorAll('#navg-' + currentType + ' .nav-sub-item').forEach(btn => {
+        const match = btn.getAttribute('onclick')?.match(/filterBySubType\('[^']*',\s*'([^']+)'/);
+        if (!match) return;
+        const subType = match[1];
+        const fn = SUBTYPE_MATCH[currentType]?.[subType];
+        const hasLeads = fn ? typeLeads.some(fn) : false;
+        btn.style.display = hasLeads ? '' : 'none';
+      });
     }
 
     function setFilter(f, el) {
@@ -3085,7 +3095,7 @@
 
     /* ── SUBTYPE PILL LABELS ── */
     const SUBTYPE_LABELS = {
-      vet: { 'primary-care': 'Primary Care', 'urgent-care': 'Urgent Care', 'emergency': 'Emergency / 24hr', 'specialty': 'Specialty', 'mobile-vet': 'Mobile Vet' },
+      vet: { 'primary-care': 'Primary Care', 'urgent-care': 'Urgent Care', 'emergency': 'Emergency / 24hr', 'specialty': 'Specialty' },
       apt: { 'luxury': 'Luxury', 'mid-range': 'Mid-Range', 'affordable': 'Affordable', 'student-housing': 'Student Housing' },
       realtor: { 'residential': 'Residential', 'relocation-specialist': 'Relocation Specialist', 'military-relocation': 'Military Relocation', 'new-construction': 'New Construction', 'luxury': 'Luxury' },
       'pet-services': { 'grooming': 'Grooming', 'training': 'Training', 'other': 'Other Pet Services' },
