@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pocatello Pet Lodge — Marketing Revival Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:      #74151a;
+    --accent-mid:  #9c1f25;
+    --accent-soft: #f8ecec;
+    --ink:         #000000;
+    --ink-soft:    #1a1a1a;
+    --ink-muted:   #555555;
+    --ink-faint:   #9c9c9d;
+    --paper:       #fafaf8;
+    --paper-warm:  #f4f2ee;
+    --rule:        #e2e0db;
+    --green:       #2e6e4a;
+    --amber:       #b08020;
+    --white:       #ffffff;
+    --danger:      #7a1010;
+    --danger-soft: #fdf0f0;
+  }
+
+  .crisis-alert {
+    background: var(--danger);
+    color: var(--white);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    border-radius: 2px;
+  }
+  .crisis-alert .crisis-label {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px;
+  }
+  .crisis-alert .crisis-title {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .crisis-alert .crisis-body { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .crisis-alert strong { color: #ffdddd; }
+
+  .verdict.hold .verdict-label { color: #7a4010; }
+  .verdict.hold .verdict-label::before { background: #c06820; }
+  .verdict.hold { border-left: 3px solid #c06820; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display { font-family: 'Fraunces', serif; }
+  .mono    { font-family: 'JetBrains Mono', monospace; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--ink);
+    color: var(--white);
+    padding: 28px 48px 24px;
+    border-bottom: 3px solid var(--accent);
+  }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 14px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--accent); display: inline-block;
+    margin-right: 8px; vertical-align: middle;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+  }
+  .header-title em { font-style: italic; color: #b84040; }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .status-pill {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── TAB BAR ── */
+  .tab-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 48px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--ink-faint);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 20px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn:hover { color: var(--ink-soft); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── TAB PANELS ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── PANEL LAYOUT ── */
+  .panel-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  /* ── EYEBROW ── */
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION TITLES ── */
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  h2.section-title em { font-style: italic; color: var(--accent); }
+  .section-deck {
+    font-size: 16px;
+    color: var(--ink-muted);
+    max-width: 680px;
+    margin-bottom: 48px;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── MARKET GRID (KPI row) ── */
+  .market-grid {
+    display: grid;
+    border: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+  .market-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .market-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .market-cell {
+    padding: 28px 24px;
+    border-right: 1px solid var(--rule);
+  }
+  .market-cell:last-child { border-right: none; }
+  .market-num {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .market-num.red { color: var(--accent); }
+  .market-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .market-sub { font-size: 12px; color: var(--ink-faint); }
+
+  /* ── RANK CARDS ── */
+  .ranking { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .rank-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rank-num {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    opacity: 0.12;
+  }
+  .rank-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .rank-name {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .rank-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+  /* ── WALKAWAY / CALLOUT ── */
+  .walkaway {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+  }
+  .walkaway strong { color: var(--accent); font-weight: 600; }
+
+  .caveat {
+    background: #fffbf0;
+    border-left: 3px solid var(--amber);
+    padding: 20px 24px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+  .caveat strong {
+    color: var(--ink);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── VENUE CARDS ── */
+  .venue-list { border-top: 1px solid var(--rule); }
+  .venue {
+    display: grid;
+    grid-template-columns: 64px 1fr 220px;
+    gap: 36px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .venue-num {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--ink-faint);
+    line-height: 1;
+    opacity: 0.4;
+  }
+  .venue-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .venue-meta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+  }
+  .venue-content p { font-size: 14px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 12px; }
+  .venue-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .vs-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 3px; }
+  .vs-val { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; }
+  .venue-detail { font-size: 12px; color: var(--ink-muted); line-height: 1.6; margin-top: 12px; }
+
+  /* ── VERDICT ── */
+  .verdict {
+    padding: 20px;
+    border: 1px solid var(--rule);
+    background: var(--paper-warm);
+  }
+  .verdict-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .verdict-label::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .verdict.buy  .verdict-label { color: var(--green); }
+  .verdict.buy  .verdict-label::before { background: var(--green); }
+  .verdict.test .verdict-label { color: var(--amber); }
+  .verdict.test .verdict-label::before { background: var(--amber); }
+  .verdict.skip .verdict-label { color: #aa2020; }
+  .verdict.skip .verdict-label::before { background: #aa2020; }
+  .verdict-text { font-size: 12px; line-height: 1.55; color: var(--ink-soft); }
+
+  /* ── PHASE BLOCKS (30/90/90) ── */
+  .phase-section { margin-bottom: 40px; }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .phase-badge {
+    background: var(--accent);
+    color: var(--white);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .phase-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .phase-cost {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: right;
+  }
+  .phase-cost strong { color: var(--ink); font-weight: 500; display: block; font-size: 14px; }
+
+  .resp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); }
+  .resp-col { padding: 24px; }
+  .resp-col:first-child { border-right: 1px solid var(--rule); }
+  .resp-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .label-cm   { background: var(--ink); color: var(--white); }
+  .label-mktg { background: var(--accent); color: var(--white); }
+
+  .resp-list { list-style: none; }
+  .resp-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding: 9px 0 9px 16px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .resp-list li:last-child { border-bottom: none; }
+  .resp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ── SCENARIO TOGGLE ── */
+  .scenario-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .scenario-btn {
+    padding: 10px 22px;
+    border: 2px solid var(--rule);
+    background: transparent;
+    color: var(--ink-muted);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-radius: 2px;
+  }
+  .scenario-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+
+  /* ── SCENARIO KPI CARDS ── */
+  .scenario-kpi {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .skpi-cell {
+    padding: 24px 20px;
+    border-right: 1px solid var(--rule);
+  }
+  .skpi-cell:last-child { border-right: none; }
+  .skpi-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; }
+  .skpi-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .skpi-num.green { color: var(--green); }
+  .skpi-sub { font-size: 12px; color: var(--ink-muted); }
+
+  /* ── CHART AREA ── */
+  .chart-wrap {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 36px 36px 28px;
+    margin-bottom: 28px;
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .chart-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .chart-sub { font-size: 12px; color: var(--ink-muted); }
+  .chart-legend { display: flex; gap: 18px; align-items: center; font-size: 12px; flex-wrap: wrap; }
+  .chart-legend-item { display: flex; align-items: center; gap: 7px; }
+
+  /* ── GOALS TABLE ── */
+  .goals-table-wrap { border: 1px solid var(--rule); overflow: hidden; margin-bottom: 24px; }
+  .goals-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .goals-table th {
+    background: var(--ink);
+    color: var(--white);
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .goals-table th.center { text-align: center; }
+  .goals-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); }
+  .goals-table td.center { text-align: center; }
+  .goals-table tr:last-child td { border-bottom: none; }
+  .goals-table tfoot tr { background: var(--ink); color: var(--white); }
+  .goals-table tfoot td { border-bottom: none; }
+
+  /* ── ROI BENCH CARDS ── */
+  .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .bench-card { border: 1px solid var(--rule); padding: 24px; background: var(--white); }
+  .bench-num {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .bench-num small { color: var(--ink-muted); font-size: 16px; }
+  .bench-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .bench-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+  /* ── ROADMAP ── */
+  .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); margin-top: 32px; }
+  .stage { padding: 32px 28px; border-right: 1px solid var(--rule); }
+  .stage:last-child { border-right: none; }
+  .stage-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 6px; }
+  .stage-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+  .stage-time { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.04em; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+  .stage ul { list-style: none; }
+  .stage li { font-size: 13px; line-height: 1.5; color: var(--ink-soft); padding-left: 14px; position: relative; margin-bottom: 10px; }
+  .stage li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ── B2B TRACK CARDS ── */
+  .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+  .track-card { padding: 32px; }
+  .track-paid { background: var(--accent); color: var(--white); }
+  .track-b2b  { background: var(--ink); color: var(--white); border: 1px solid var(--ink); }
+  .track-card .eyebrow-white {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 12px; display: block;
+  }
+  .track-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 500; margin-bottom: 16px; letter-spacing: -0.01em;
+  }
+  .track-item { margin-bottom: 16px; }
+  .track-detail-label {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 4px;
+  }
+  .track-detail-val { font-size: 13px; font-weight: 500; line-height: 1.4; }
+  .track-inset {
+    background: rgba(255,255,255,0.1);
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .track-inset strong { display: block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; opacity: 0.6; }
+
+  /* ── CHECKLIST ── */
+  .check-list { list-style: none; border-top: 1px solid var(--rule); }
+  .check-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 13px;
+  }
+  .check-box {
+    width: 17px; height: 17px;
+    border: 2px solid var(--rule);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-content { flex: 1; }
+  .check-title { font-weight: 600; margin-bottom: 3px; }
+  .check-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+  .check-tag {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 3px 9px; border-radius: 2px; text-transform: uppercase; white-space: nowrap; margin-top: 2px;
+  }
+  .tag-mktg { background: var(--accent-soft); color: var(--accent); }
+  .tag-cm   { background: #f0f0f0; color: #333; }
+  .tag-both { background: #eef2ff; color: #2a3f9a; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table th {
+    text-align: left;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom: 2px solid var(--rule);
+    padding: 8px 14px;
+  }
+  .data-table td { padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--paper-warm); }
+  .td-bold { font-weight: 700; }
+  .td-red  { color: var(--accent); font-weight: 700; }
+  .td-gray { color: var(--ink-muted); }
+  .td-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+  /* ── INLINE BAR ── */
+  .bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .bar-track { flex: 1; background: var(--paper-warm); border-radius: 1px; height: 6px; }
+  .bar-fill  { background: var(--accent); border-radius: 1px; height: 6px; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+  /* ── GRID HELPERS ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  /* ── INSET BOX ── */
+  .inset {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 20px 22px;
+  }
+  .inset-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 8px;
+  }
+
+  /* ── PHASE TABS (30/90/90) NAVIGATION ── */
+  .phase-nav { display: flex; gap: 0; margin-bottom: 0; border: 1px solid var(--rule); }
+  .phase-nav-btn {
+    flex: 1;
+    background: var(--white);
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 14px 12px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer;
+    color: var(--ink-muted);
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .phase-nav-btn:last-child { border-right: none; }
+  .phase-nav-btn.active { background: var(--accent); color: var(--white); }
+  .phase-nav-btn:hover:not(.active) { background: var(--paper-warm); color: var(--ink); }
+
+  .phase-panel { display: none; border: 1px solid var(--rule); border-top: none; }
+  .phase-panel.active { display: block; }
+  .phase-panel-header {
+    padding: 20px 24px;
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .phase-panel-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 500; letter-spacing: -0.01em;
+  }
+  .phase-panel-sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+  .site-footer .display { font-size: 15px; color: var(--ink); margin-bottom: 6px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .panel-inner { padding: 36px 24px; }
+    .site-header, .tab-bar { padding-left: 24px; padding-right: 24px; }
+    .market-grid-4, .scenario-kpi, .ranking, .grid-2, .grid-3,
+    .bench-grid, .roadmap, .resp-split, .track-grid { grid-template-columns: 1fr; }
+    .market-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+    .market-cell:last-child { border-bottom: none; }
+    .venue { grid-template-columns: 1fr; gap: 20px; }
+    .skpi-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+    .skpi-cell:last-child { border-bottom: none; }
+    .stage { border-right: none; border-bottom: 1px solid var(--rule); }
+    .stage:last-child { border-bottom: none; }
+    .resp-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .phase-nav { flex-wrap: wrap; }
+    .phase-nav-btn { min-width: 50%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <div class="header-meta">
+    <span><span class="dot"></span>Best Friends Pet Care</span>
+    <span>Centers 241 &amp; 242 · Pocatello, ID</span>
+    <span>Prepared by Tucker · Marketing &amp; Operations</span>
+    <span>Updated May 8, 2026</span>
+  </div>
+  <h1 class="header-title">Pocatello market <em>revival.</em></h1>
+  <div class="header-sub">
+    <span>Executive Dashboard · Six-Section Overview</span>
+    <span class="status-pill">Pre-Launch</span>
+  </div>
+</header>
+
+<!-- ── TAB BAR ── -->
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('diagnosis', this)">Diagnosis</button>
+  <button class="tab-btn" onclick="switchTab('plan', this)">30 / 90 / 90+ Plan</button>
+  <button class="tab-btn" onclick="switchTab('goals', this)">Growth Goals</button>
+  <button class="tab-btn" onclick="switchTab('channels', this)">Channels &amp; Media</button>
+  <button class="tab-btn" onclick="switchTab('b2b', this)">B2B Track</button>
+  <button class="tab-btn" onclick="switchTab('nextsteps', this)">Next Steps</button>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 1 · DIAGNOSIS -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-diagnosis" class="tab-panel active">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 1 of 6 · Market Diagnosis · Updated May 8, 2026 — Post Call with Dion</div>
+  <h2 class="section-title">The problem isn't awareness. <em>It's trust.</em></h2>
+  <p class="section-deck">Pet parents in Pocatello already know this brand — the challenge is a damaged reputation driven by contentious manager exits, active public badmouthing, and a shelter that told the community not to bring their pets here. Paid media and social promotion aimed at a market where trust is broken will backfire. The fix is human, local, and relationship-first.</p>
+
+  <!-- Reputation Crisis Alert -->
+  <div class="crisis-alert">
+    <div class="crisis-label">Reputation Crisis — Confirmed May 8, 2026</div>
+    <div class="crisis-title">Brand trust has been publicly damaged in a small, tight-knit community.</div>
+    <div class="crisis-body">3+ contentious manager exits within months of each other · Ex-employees actively badmouthing Best Friends to clients, staff, and the public · A local <strong>animal shelter posted on social media warning the community not to bring their pets here</strong> · Two former managers are now pursuing licensing to open a <strong>competing boarding facility</strong> · The previous owner of the center — who has significant community influence — also holds a negative view of Best Friends. All of this is happening in a small city where word travels fast and Facebook comment sections are watched by everyone involved.</div>
+  </div>
+
+  <div class="market-grid market-grid-4" style="margin-bottom:32px;">
+    <div class="market-cell">
+      <div class="market-label">Daycare Comp Decline</div>
+      <div class="market-num red">–50%</div>
+      <div class="market-sub">YoY this quarter — primary revenue hit</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">Daycare Revenue Lost</div>
+      <div class="market-num red">~$20k</div>
+      <div class="market-sub">From daycare alone in ~6 weeks of Q2</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">Customer Retention Rate</div>
+      <div class="market-num red">~39%</div>
+      <div class="market-sub">Far below healthy benchmark</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-label">2025 New Customers</div>
+      <div class="market-num">443</div>
+      <div class="market-sub">~37/mo combined · Centers 241 &amp; 242</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:24px;">
+
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">What's Broken</div>
+      <ul class="resp-list" style="border: 1px solid var(--rule);">
+        <li style="padding:10px 0 10px 16px;"><strong>Brand reputation publicly damaged</strong> — multiple ex-employees badmouthing the company across the community</li>
+        <li style="padding:10px 0 10px 16px;">Shelter social media post warning community against Best Friends still circulating</li>
+        <li style="padding:10px 0 10px 16px;">Two former managers pursuing a competing boarding facility — actively motivated to undermine</li>
+        <li style="padding:10px 0 10px 16px;">Previous owner has community influence and negative view of Best Friends</li>
+        <li style="padding:10px 0 10px 16px;">Daycare down 50% comps — bleeding customers, not just failing to acquire them</li>
+        <li style="padding:10px 0 10px 16px;">High staff turnover — half the team is new, culture still being reset</li>
+        <li style="padding:10px 0 10px 16px;">High labor costs (55–60% payroll-to-sales outside peak)</li>
+        <li style="padding:10px 0 10px 16px;">No SMS cross-sell templates built for Pocatello yet</li>
+        <li style="padding:10px 0 10px 16px;">No referral-source attribution discipline at intake</li>
+        <li style="padding:10px 0 10px 16px; border-bottom:none;">Website accuracy issues — expired offers, incorrect content on GBP</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">What We're Working With</div>
+      <ul class="resp-list" style="border: 1px solid var(--rule);">
+        <li style="padding:10px 0 10px 16px;"><strong>Chris (CM) is a local guy who fits Pocatello</strong> — long-time resident, credible community face</li>
+        <li style="padding:10px 0 10px 16px;"><strong>Jerica (supervisor)</strong> — passionate about the community, may have partner with local business ties; strong candidate for assistant manager and community ambassador</li>
+        <li style="padding:10px 0 10px 16px;">Dion will be in market — can do in-person B2B outreach with CM</li>
+        <li style="padding:10px 0 10px 16px;">4.9 Google rating — the reputation damage has not hit reviews yet; this is a window</li>
+        <li style="padding:10px 0 10px 16px;"><strong>New DDC pricing is highly competitive</strong> — as low as $13/day at 3x/week; a real conversion hook once people are in the door</li>
+        <li style="padding:10px 0 10px 16px;">PawConnect available for reactivation and at-risk workflows</li>
+        <li style="padding:10px 0 10px 16px;">B2B Partnership CRM already ready — Pocatello leads pre-populated</li>
+        <li style="padding:10px 0 10px 16px;">Playbooks in progress — Vet Playbook built, Realtor next. Gives structure to relationship outreach</li>
+        <li style="padding:10px 0 10px 16px; border-bottom:none;">PVFM farmers market confirmed as a priority by both Tucker and Dion — dogs everywhere, low cost, right community</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="walkaway" style="margin-bottom:32px;">
+    <strong>The strategic reset:</strong> Awareness is not the problem — people know Pocatello Pet Lodge. Spending money on paid media or social ads that remind people of a brand they distrust will either be wasted or actively harmful. The fix starts with <strong>human relationships, in-person presence, and earning back trust one conversation at a time</strong>. Paid media is a Phase 2 decision, conditional on reputation improvement.
+  </div>
+
+  <hr class="divider">
+  <div class="eyebrow">New Customer Trend — 2025 vs. 2026 YTD</div>
+  <div class="chart-wrap" style="padding:28px 32px 22px;">
+    <div class="chart-header">
+      <div>
+        <div class="chart-title" style="font-size:16px;">New Customers by Month</div>
+        <div class="chart-sub">Jan–Apr 2026 vs. full year 2025</div>
+      </div>
+      <div class="chart-legend">
+        <div class="chart-legend-item">
+          <svg width="28" height="10" style="flex-shrink:0;"><line x1="0" y1="5" x2="28" y2="5" stroke="#c0bab0" stroke-width="2" stroke-dasharray="5,3"/></svg>
+          <span style="color:var(--ink-muted);">2025 Full Year (147 Jan–Apr)</span>
+        </div>
+        <div class="chart-legend-item">
+          <svg width="28" height="10" style="flex-shrink:0;"><line x1="0" y1="5" x2="28" y2="5" stroke="#74151a" stroke-width="2.5"/></svg>
+          <span>2026 YTD (162 Jan–Apr)</span>
+        </div>
+        <div style="background:#eaf2ed; color:#2e6e4a; padding:3px 10px; font-size:11px; font-weight:700; border-radius:2px; margin-left:4px;">+10.2% YoY Jan–Apr (YTD)</div>
+      </div>
+    </div>
+    <canvas id="diagnosisChart"></canvas>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 2 · 30/90/90+ PLAN -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-plan" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 2 of 6 · Execution Plan · Revised Post May 8 Call</div>
+  <h2 class="section-title">Reputation first. <em>Acquisition second.</em></h2>
+  <p class="section-deck">The strategy has shifted. Phase 1 is no longer about media setup — it's about earning back community trust through human presence, relationship repair, and serving existing customers well. Paid media is deferred until reputation evidence supports it. CM/DM and Marketing responsibilities remain separated.</p>
+
+  <!-- Legend -->
+  <div style="display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; align-items:center;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+      <span class="resp-col-label label-cm" style="font-size:9px; padding:3px 10px;">CM / DM</span>
+      <span style="color:var(--ink-muted);">Chris (CM) + District Manager — on-the-ground execution</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+      <span class="resp-col-label label-mktg" style="font-size:9px; padding:3px 10px;">Marketing</span>
+      <span style="color:var(--ink-muted);">Tucker — campaign, digital, media, and tools</span>
+    </div>
+  </div>
+
+  <!-- Phase navigation -->
+  <div class="phase-nav">
+    <button class="phase-nav-btn active" onclick="switchPhase('p1', this)">Phase 1 · Next 30 Days</button>
+    <button class="phase-nav-btn" onclick="switchPhase('p2', this)">Phase 2 · Day 30–90</button>
+    <button class="phase-nav-btn" onclick="switchPhase('p3', this)">Phase 3 · 90+ Days</button>
+  </div>
+
+  <!-- Phase 1 -->
+  <div id="phase-p1" class="phase-panel active">
+    <div class="phase-panel-header">
+      <div>
+        <div class="phase-panel-title">Repair Trust + Serve What We Have</div>
+        <div class="phase-panel-sub">Weeks 1–4 · No paid media · No social promotion · Human-first, community-first</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500;">$0 Media</div>
+        <div style="font-size:11px; color:var(--ink-muted);">Trust repair + operational foundation</div>
+      </div>
+    </div>
+    <div class="resp-split">
+      <div class="resp-col">
+        <span class="resp-col-label label-cm">CM / DM — Chris &amp; DM</span>
+        <ul class="resp-list">
+          <li><strong>Dion — 5/12 in-person visit:</strong> Lead with listening, not a sales pitch. Goal is temperature check and relationship-opening, not conversion</li>
+          <li>Dion: attempt to connect with the previous owner through Chris's existing relationship — mend that relationship directly; she has significant community influence</li>
+          <li>Chris and Jerica as the local face of the center — both known to the community; put them in front of people, not corporate messaging</li>
+          <li>SMS cross-sell starts immediately — Tucker is building templates now. Focus on existing clients: upsell grooming, enrichment, baths for dogs already in-house</li>
+          <li>Start sourcing a dog trainer — training is a community trust-builder and a gap Pocatello doesn't have yet</li>
+          <li><strong>Farmers Market — PVFM:</strong> Email market manager this week to secure a trial date. Walk the line with a Pocatello shirt, talk to dog owners, hand out a simple offer card. No hard sell. Just be present and friendly in the community</li>
+          <li>Ask every new customer "Where did you hear about us?" starting Monday — add source tag + profile note in MoeGo. Non-negotiable habit from day one</li>
+          <li>Run PawConnect reactivation of lapsed boarding and daycare customers with new DDC pricing offer ($13/day at 3x/week)</li>
+          <li>End-of-month review: retention, missed calls, rebooking rate, referral source data, and any community sentiment signals</li>
+        </ul>
+      </div>
+      <div class="resp-col">
+        <span class="resp-col-label label-mktg">Marketing — Tucker</span>
+        <ul class="resp-list">
+          <li>Deliver B2B Partnership CRM and Vet/Realtor Playbook</li>
+          <li>Build SMS cross-sell templates for Pocatello immediately — enrichment, grooming, boarding upsells; targeted one-to-one style, not mass blast</li>
+          <li>Fix website accuracy — remove expired offers, fix booking links, update service pages. Google Business Profile cleaned up and current</li>
+          <li>Build lapsed-customer reactivation workflow featuring the new DDC pricing — reach people who have already left with the best offer they've ever seen</li>
+          <li>Send mass awareness message to existing customer base about underutilized services — daycare packages, enrichment, grooming; they may not know these exist at new prices</li>
+          <li>Provide referral-source tag structure and tracking process — get this in place before anything else</li>
+          <li>Coordinate with Jessica on POS trifolds, business cards, and any giveaway items for PVFM appearances (branded items the team can hand out at the farmers market)</li>
+          <li><strong>Hold on paid media and Facebook/social promotion</strong> — reputation damage makes public-facing campaigns risky. Active detractors are watching and will hijack comment sections. Do not launch until community sentiment improves</li>
+          <li>Audit Google reviews — monitor for any new negative content; flag anything that needs a response</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div id="phase-p2" class="phase-panel">
+    <div class="phase-panel-header">
+      <div>
+        <div class="phase-panel-title">Build Referral Momentum + Selective Acquisition</div>
+        <div class="phase-panel-sub">Weeks 5–13 · B2B referrals compounding · PVFM regular presence · Paid media conditional on reputation improvement</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500;">$0–$3k Media</div>
+        <div style="font-size:11px; color:var(--ink-muted);">Only if reputation evidence supports it</div>
+      </div>
+    </div>
+    <div class="resp-split">
+      <div class="resp-col">
+        <span class="resp-col-label label-cm">CM / DM — Chris &amp; DM</span>
+        <ul class="resp-list">
+          <li>Continue bi-weekly B2B follow-up cadence with all active partner contacts — Dion's initial vet outreach hands off to Chris for ongoing relationship management</li>
+          <li>PVFM farmers market: attend regularly throughout May–October. Walk the line, talk to dog owners, hand out offer cards. Build a recognizable friendly face for the brand in that community setting</li>
+          <li>Kick off customer referral rewards — for every happy customer who refers someone, have a simple manual reward ready (Tucker is building this). Don't wait for Mogo's solution</li>
+          <li>Continue SMS cross-sell campaigns — track which templates are driving bookings, grooms, enrichment add-ons; iterate the ones that are working</li>
+          <li>Continue PawConnect reactivation of lapsed and at-risk customers</li>
+          <li>Build relationship with any trainer once sourced — training is a referral magnet and trust-builder</li>
+          <li>Monthly reviews: retention, referral source data, B2B activity, and community sentiment — report any positive or negative signals from the community</li>
+        </ul>
+      </div>
+      <div class="resp-col">
+        <span class="resp-col-label label-mktg">Marketing — Tucker</span>
+        <div class="caveat" style="margin-bottom:12px; margin-top:10px;"><strong>Phase 2 Direction —</strong> Evaluate potential media partnerships. If reputation is improving, begin pursuing opportunities for sponsorship &amp; promotional spend.</div>
+        <ul class="resp-list">
+          <li>Launch customer referral program — manual tracking if needed; don't wait for a perfect system. Happy customers referring neighbors is the fastest reputation repair available</li>
+          <li>Continue and optimize lapsed-customer and at-risk reactivation workflows</li>
+          <li>Use attribution data from source tags and PawConnect notes to identify which partners and referral sources are actually producing customers</li>
+          <li>Improve Google and ChatGPT findability through website content updates, local SEO, and review monitoring — quietly improve digital presence without triggering the comment-section risk of paid social</li>
+          <li><strong>Paid media decision point at Day 30:</strong> Review community sentiment. If no active public incidents in 30 days and positive signals are coming from B2B and PVFM activity, evaluate a limited KPVI test (pet segment — warm relationship, lower risk than broad ads). Facebook paid and organic remains on hold until further notice</li>
+          <li>Build landing pages for DDC membership pricing and the trial offer — for when paid media does launch</li>
+          <li>Continue monitoring Google reviews and any social media mentions — flag anything that needs a management response</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div id="phase-p3" class="phase-panel">
+    <div class="phase-panel-header">
+      <div>
+        <div class="phase-panel-title">Reduce Paid-Lead Dependence + Build Durable Local Growth</div>
+        <div class="phase-panel-sub">Week 14+ · Scale winners · B2B referrals compounding · Paid spend tapers</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500;">Full Budget</div>
+        <div style="font-size:11px; color:var(--ink-muted);">Shift to durable demand</div>
+      </div>
+    </div>
+    <div class="resp-split">
+      <div class="resp-col">
+        <span class="resp-col-label label-cm">CM / DM — Chris &amp; DM</span>
+        <ul class="resp-list">
+          <li><strong>Day 60 review gate:</strong> Assess whether reputation sentiment has stabilized before any full media activation</li>
+          <li>Own the B2B referral engine — deepen partnerships into durable channels, not one-time intros</li>
+          <li>Recognize and nurture top referral partners; identify any industries missing from B2B pipeline</li>
+          <li>Continue using B2B Partnership CRM as the single source of truth for all partner activity</li>
+          <li>Make referral-source tracking a standard operating behavior — every new customer, every time</li>
+          <li>Recognize and reward top customer referrers</li>
+          <li>CM/DM accountability tied to: retention, referral generation, rebooking, cross-sell activity, and local relationship growth</li>
+        </ul>
+      </div>
+      <div class="resp-col">
+        <span class="resp-col-label label-mktg">Marketing — Tucker</span>
+        <ul class="resp-list">
+          <li>13-week renewal on winning channels at 20–35% off open rate</li>
+          <li>ISU Bengals promotional activation — fall football (creative activation, not static signage)</li>
+          <li>Shift from paid-lead dependence to durable demand creation — scale what's working, cut what's not</li>
+          <li>Support customer referral campaigns through email, SMS, signage, and customer journey touchpoints</li>
+          <li>Build Pocatello category dominance around trust, safety, convenience, and local relationships</li>
+          <li>Continue B2B partnership process support — updated playbooks, new industry leads, CRM maintenance</li>
+          <li>Continue monitoring local SEO, AI findability, and review velocity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 3 · GROWTH GOALS -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-goals" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 3 of 6 · Projected Impact</div>
+  <h2 class="section-title">A realistic path forward, <em>three spend scenarios.</em></h2>
+  <p class="section-deck">Based on 2025 monthly actuals from both Pocatello centers (combined). Goals are set above those real numbers month-by-month — not against a smoothed average. Early months: paid-media lift. Later months: gap widens as B2B referrals compound and paid spend tapers.</p>
+
+  <!-- Scenario selector -->
+  <div class="scenario-bar">
+    <button class="scenario-btn active" onclick="setScenario('conservative', this)" id="sbtn-conservative">$2k · Conservative</button>
+    <button class="scenario-btn" onclick="setScenario('moderate', this)" id="sbtn-moderate">$4k · Moderate</button>
+    <button class="scenario-btn" onclick="setScenario('aggressive', this)" id="sbtn-aggressive">$6k · Full Investment</button>
+  </div>
+
+  <!-- KPI summary cards -->
+  <div class="scenario-kpi">
+    <div class="skpi-cell">
+      <div class="skpi-label">Spend Level</div>
+      <div class="skpi-num" id="card-spend">$5,000</div>
+      <div class="skpi-sub">annual paid media</div>
+    </div>
+    <div class="skpi-cell">
+      <div class="skpi-label">6-Month Lift</div>
+      <div class="skpi-num green" id="card-target">+49</div>
+      <div class="skpi-sub">new customers above 2025</div>
+    </div>
+    <div class="skpi-cell">
+      <div class="skpi-label">Incremental ACV</div>
+      <div class="skpi-num green" id="card-revenue">$36,750</div>
+      <div class="skpi-sub">at $750 portfolio avg</div>
+    </div>
+    <div class="skpi-cell">
+      <div class="skpi-label">Blended CAC</div>
+      <div class="skpi-num" id="card-cac">$102</div>
+      <div class="skpi-sub">well inside $1,500 LTV</div>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div class="chart-wrap">
+    <div class="chart-header">
+      <div>
+        <div class="chart-title">New Customer Projections · Jun–Nov 2026</div>
+        <div class="chart-sub">Combined Centers 241 + 242 · vs. 2025 monthly actuals</div>
+      </div>
+      <div class="chart-legend">
+        <div class="chart-legend-item">
+          <span style="width:26px;height:0;border-top:2px dashed #b0a890;display:inline-block;"></span>
+          <span style="font-size:12px; color:var(--ink-muted);">2025 Actuals</span>
+        </div>
+        <div class="chart-legend-item" id="legend-item">
+          <span style="width:26px;height:3px;background:var(--accent);display:inline-block;border-radius:2px;"></span>
+          <span style="font-size:12px; color:var(--ink-muted);" id="legend-label">Conservative Goal</span>
+        </div>
+      </div>
+    </div>
+    <canvas id="growthChart" style="width:100%; max-height:280px;"></canvas>
+
+    <div style="margin-top:22px; padding-top:18px; border-top:1px solid var(--rule);">
+      <div class="eyebrow" style="margin-bottom:10px; font-size:9px;">Monthly Media Spend — front-loaded, tapering as B2B referrals take over</div>
+      <canvas id="spendChart" style="width:100%;"></canvas>
+    </div>
+  </div>
+
+  <!-- Month-by-month table -->
+  <div class="goals-table-wrap">
+    <table class="goals-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th class="center">2025 Actual</th>
+          <th class="center" id="th-goal">Conservative Goal</th>
+          <th class="center">Lift vs. 2025</th>
+          <th>Media Spend · Driver</th>
+        </tr>
+      </thead>
+      <tbody id="goals-tbody"></tbody>
+      <tfoot id="goals-tfoot"></tfoot>
+    </table>
+  </div>
+
+  <div class="caveat">
+    <strong>How to read these goals</strong>
+    The 2025 actuals show exactly what both centers did last year — including the sharp Sep/Oct dip (25 and 22 customers). Goals are set above those real numbers every month, so every month tells a true year-over-year improvement story. The Sep/Oct trough is preserved intentionally: hitting the goal there defends a historically weak window; beating it is visible upside. CAC is calculated only against paid media spend — B2B referrals carry zero media cost, so any customers sourced through the CM/DM partnership track improve the blended CAC automatically.
+  </div>
+
+  <!-- ROI Framework -->
+  <hr class="divider">
+  <div class="eyebrow">ROI Framework &amp; Walk-Away Rules</div>
+  <div class="bench-grid">
+    <div class="bench-card">
+      <div class="bench-label">CAC Ceiling</div>
+      <div class="bench-num">$75<small>–$150</small></div>
+      <div class="bench-desc">10–20% of $750 ACV. Any channel exceeding $150 CAC at the week-8 review is cut without exception.</div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-label">Blended CPM Ceiling</div>
+      <div class="bench-num">&lt;$20</div>
+      <div class="bench-desc">Across the full plan. Channels above $25 CPM with no bonus value (audience fit, endorsement, relationship) are dropped.</div>
+    </div>
+    <div class="bench-card">
+      <div class="bench-label">ACV / LTV Note</div>
+      <div class="bench-num" style="color:var(--ink-faint);">TBD</div>
+      <div class="bench-desc">$750 ACV and $1,500 LTV are portfolio averages. Validate with Pocatello-specific data as it accumulates. Adjust ROI math accordingly.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 4 · CHANNELS & MEDIA -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-channels" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 4 of 6 · Venue Assessment · Revised May 8, 2026</div>
+  <h2 class="section-title">Strategy reset: <em>community presence over paid reach.</em></h2>
+  <p class="section-deck">The May 8 call with Dion changed the channel priority stack. Awareness is not the problem — the community knows this brand. Paid media and social campaigns aimed at a market with active detractors carry real reputational risk. Community presence (farmers market), B2B relationship repair, and referrals are the priority. Paid media is conditional on reputation improvement, not a default Phase 1 action.</p>
+
+  <div class="venue-list">
+
+    <!-- Farmers Market — Priority #1 -->
+    <div class="venue">
+      <div class="venue-num">01</div>
+      <div class="venue-body">
+        <h3>Portneuf Valley Farmers Market (PVFM)</h3>
+        <div class="venue-meta">Community Presence · Saturday market · 435 W Center St, Pocatello · Season: May 2 – Oct 31, 2026 · <span style="color:var(--green); font-weight:700;">Top priority — confirmed May 8 by Tucker + Dion</span></div>
+        <div class="venue-content">
+          <p><strong>This is the #1 community activation opportunity.</strong> Tucker and Dion aligned on this directly during the May 8 call. PVFM draws Pocatello's most engaged local shoppers every Saturday — the exact pet-owning household demographic — and it's full of dogs. The play isn't a vendor booth selling products. It's showing up in a Pocatello shirt, walking the line, talking to people who have dogs, and being a friendly human face for the brand. That's how you rebuild trust in a small town — not with ads.</p>
+          <p>Other center managers (including Megan) do exactly this and it's one of their most effective local acquisition tools. The format also carries zero comment-section risk — it's a human conversation, not a public post. A single trial day at <strong>$60 + 6% of sales</strong> is near-zero cost. Full season membership is $125 total.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">Trial Day (Crafter)</div><div class="vs-val">$60 + 6%</div></div>
+          <div class="venue-stat"><div class="vs-label">Full Season</div><div class="vs-val">$125 / 10×10</div></div>
+          <div class="venue-stat"><div class="vs-label">Additional Space</div><div class="vs-val">+$15 each</div></div>
+          <div class="venue-stat"><div class="vs-label">Tax Event ID</div><div class="vs-val mono">921763840</div></div>
+        </div>
+        <div class="venue-detail">
+          <strong>How to register:</strong> Email manager@portneufvalleyfarmersmarket.com — approval required by Friday evening prior to the Saturday. Obtain Temporary Tax ID via tax.idaho.gov/GoToTAP → "Temporary Sellers and Promoters" → "Seller" → enter Event ID 921763840. Payment (Venmo, credit card, or check) due before Saturday morning setup. Notify manager Thursday prior to your first market date. Early bird discount: $5 off with code <span class="mono">EARLYBIRD2026</span> — confirm availability with manager.
+          <br><br>
+          <strong>No Resale Rule:</strong> PVFM strictly enforces this rule for agricultural products. As a service vendor (not a grower), Best Friends participates in the Crafter/Food Vendor category — confirm with the market manager before submitting the application.
+        </div>
+      </div>
+      <div class="verdict buy">
+        <div class="verdict-label">Priority — Start Now</div>
+        <div class="verdict-text">Confirmed priority by Tucker and Dion on May 8. Email market manager this week. Trial day = $60. No comment-section risk. Human presence in a dog-filled community setting is exactly the right trust-repair move for Phase 1.</div>
+      </div>
+    </div>
+
+    <!-- Facebook -->
+    <div class="venue">
+      <div class="venue-num">02</div>
+      <div class="venue-body">
+        <h3>Facebook &amp; Meta — Paid + Organic</h3>
+        <div class="venue-meta">Social · <span style="color:#c06820; font-weight:700;">On hold — reputational risk until further notice</span></div>
+        <div class="venue-content">
+          <p>Facebook Groups are the primary way Pocatello residents share local recommendations — that's still true, and the organic opportunity is real. But the May 8 call with Dion changed the risk calculus completely.</p>
+          <p><strong>The active threat:</strong> Multiple ex-employees, a local animal shelter, and the previous owner all have negative views of Best Friends and are present in the community. Any public-facing Facebook post — paid or organic — will likely be seen by these individuals. If they comment negatively on a Best Friends ad or post in a community group, it could amplify the exact reputation damage we're trying to repair. Tucker and Dion explicitly agreed on the May 8 call to scratch Facebook for now: <em>"We don't want to start a comment section war. That's not good publicity."</em></p>
+          <p>Facebook paid is also lower value than usual because <strong>awareness is not the problem</strong>. People already know this brand. Spending to remind them of it when trust is broken is counterproductive.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">Current Status</div><div class="vs-val">On Hold</div></div>
+          <div class="venue-stat"><div class="vs-label">Unlock Condition</div><div class="vs-val">30+ days no public incidents</div></div>
+          <div class="venue-stat"><div class="vs-label">Risk Level</div><div class="vs-val">High — detractors watching</div></div>
+        </div>
+        <div class="venue-detail"><strong>Revisit at Day 30:</strong> If community sentiment has stabilized, B2B relationships are positive, and no new public incidents have occurred, evaluate carefully whether the risk profile has changed enough to test a very limited organic presence. Paid ads remain off the table until reputation evidence is much stronger.</div>
+      </div>
+      <div class="verdict hold">
+        <div class="verdict-label">Hold — Reputational Risk</div>
+        <div class="verdict-text">Agreed May 8 with Dion: scratch for now. Ex-employees and a shelter are watching. A comment-section incident would set back the trust-repair effort significantly. Revisit at Day 30 only if sentiment has stabilized.</div>
+      </div>
+    </div>
+
+    <!-- KPVI -->
+    <div class="venue">
+      <div class="venue-num">03</div>
+      <div class="venue-body">
+        <h3>KPVI — NBC Affiliate, Channel 6</h3>
+        <div class="venue-meta">Local TV · Wednesday 6am pet shelter segment + :30 spots · <span style="color:var(--amber); font-weight:700;">Conditional — revisit at Day 30</span></div>
+        <div class="venue-content">
+          <p>The warm intro via Chris and the pet segment's audience fit remain real advantages — this was the top paid media option before the May 8 call. But the strategic context has shifted. When awareness is not the problem and trust is the issue, spending to reach more people faster is not the right Phase 1 move.</p>
+          <p>Paid TV also carries a version of the same social risk: the community has active detractors who may notice and respond. A Best Friends ad running on local TV while ex-employees are badmouthing the brand in the community creates cognitive dissonance, not conversion. <strong>The KPVI opportunity stays in the plan for Phase 2</strong> — if community sentiment improves and a limited test is warranted, the warm intro and pet segment are still the right entry point. The relationship with Chris's contact is worth preserving.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">Spot Cost</div><div class="vs-val">$15–$60</div></div>
+          <div class="venue-stat"><div class="vs-label">Segment Sponsor</div><div class="vs-val">$150–$300/wk</div></div>
+          <div class="venue-stat"><div class="vs-label">Promo Code</div><div class="vs-val mono">KPVI25</div></div>
+        </div>
+        <div class="venue-detail"><strong>Phase 2 decision:</strong> If Day 30 review shows positive community trajectory, KPVI is the first paid media to activate — use Chris's warm contact, lock the pet segment, include a hard offer. Still buy if all-in ≤ $300/wk with spots included. Don't activate before then.</div>
+      </div>
+      <div class="verdict test">
+        <div class="verdict-label">Defer to Phase 2 — Trust First</div>
+        <div class="verdict-text">Still the strongest paid media option when the time is right. Preserve the relationship through Chris. Don't activate until Day 30 reputation review shows positive signal.</div>
+      </div>
+    </div>
+
+    <!-- KZBQ -->
+    <div class="venue">
+      <div class="venue-num">04</div>
+      <div class="venue-body">
+        <h3>KZBQ + Riverbend Communications</h3>
+        <div class="venue-meta">Local Radio · Multi-station cluster bundle · Morning-show endorsement read · <span style="color:var(--amber); font-weight:700;">Deferred — Phase 2 or later</span></div>
+        <div class="venue-content">
+          <p>The frequency play rationale is unchanged — top-of-mind matters when someone needs to board their dog. But frequency toward a distrusted brand reinforces the wrong association. Radio also can't be un-run; once the endorsement read is live, the community hears it whether sentiment is positive or not.</p>
+          <p>KZBQ makes more sense once B2B relationships and the farmers market presence have started to shift community perception. At that point, radio frequency helps cement a positive image that's already being built in person. Push for 3-station bundle + endorsement read when ready.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">:30 Spot</div><div class="vs-val">$8–$30</div></div>
+          <div class="venue-stat"><div class="vs-label">Cluster Pkg/Wk</div><div class="vs-val">$400–$1,200</div></div>
+          <div class="venue-stat"><div class="vs-label">Endorsement</div><div class="vs-val">+40–100%</div></div>
+          <div class="venue-stat"><div class="vs-label">Promo Code</div><div class="vs-val mono">ZBQ25</div></div>
+        </div>
+        <div class="venue-detail">Demand Nielsen/Eastlan audience documentation when ready to buy. Target CPM under $15 on cume.</div>
+      </div>
+      <div class="verdict test">
+        <div class="verdict-label">Defer — Phase 2 at Earliest</div>
+        <div class="verdict-text">Frequency play that works better when community sentiment has shifted. Amplifying a brand that's rebuilding trust — not one that's still damaged. Activate after KPVI test shows positive signal.</div>
+      </div>
+    </div>
+
+    <!-- ISU Bengals -->
+    <div class="venue">
+      <div class="venue-num">05</div>
+      <div class="venue-body">
+        <h3>Idaho State University — Bengals Athletics</h3>
+        <div class="venue-meta">Sports Sponsorship · Promo title + in-venue signage + event activation</div>
+        <div class="venue-content">
+          <p>ISU competes in the Big Sky Conference. Multimedia rights typically handled by a third-party agency — confirm current partner. Football crowds skew family, the boarding and grooming buyer profile.</p>
+          <p>A creative activation outperforms static signage — "Best Friends Pet-Friendly Tailgate" with shelter co-promo or halftime "fastest dog" contest title. Decline annual contracts above $7,500 without single-event flexibility.</p>
+          <p><strong>Note:</strong> Handshake is a student recruiting tool. Not a consumer-marketing channel.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">Promo Title</div><div class="vs-val">$1,500–$5,000</div></div>
+          <div class="venue-stat"><div class="vs-label">In-Venue Signage</div><div class="vs-val">$2,500–$10k</div></div>
+          <div class="venue-stat"><div class="vs-label">Event Activation</div><div class="vs-val">$500–$2,000</div></div>
+        </div>
+      </div>
+      <div class="verdict test">
+        <div class="verdict-label">Defer to Phase 3</div>
+        <div class="verdict-text">Strong brand play when tied to creative activation. Fall football season makes this a Stage 3 opportunity. Don't buy static signage alone.</div>
+      </div>
+    </div>
+
+    <!-- Observer -->
+    <div class="venue">
+      <div class="venue-num">06</div>
+      <div class="venue-body">
+        <h3>Pocatello Observer (Observer News Group)</h3>
+        <div class="venue-meta">Hyper-local Digital · Display banners + sponsored content + newsletter</div>
+        <div class="venue-content">
+          <p>Digital-first local outlet. Hyper-local sites in markets this size typically run 10,000–60,000 monthly uniques — only audited traffic (Google Analytics, Comscore) tells you where this one lands. Newsletter sponsorship, when available, is often the best value.</p>
+        </div>
+        <div class="venue-stats">
+          <div class="venue-stat"><div class="vs-label">Display CPM</div><div class="vs-val">$5–$20</div></div>
+          <div class="venue-stat"><div class="vs-label">Sponsored Article</div><div class="vs-val">$200–$800</div></div>
+          <div class="venue-stat"><div class="vs-label">Newsletter</div><div class="vs-val">$50–$250</div></div>
+        </div>
+        <div class="venue-detail">Cap at ~$200/mo. One sponsored article in Stage 2 only. Require Google Analytics proof of traffic before committing to display.</div>
+      </div>
+      <div class="verdict skip">
+        <div class="verdict-label">Tertiary at Best</div>
+        <div class="verdict-text">SEO halo and one-off sponsored content only. Not a primary acquisition channel. Reject display without audited traffic documentation.</div>
+      </div>
+    </div>
+
+    <!-- Idaho State Journal — Scratched -->
+    <div class="venue" style="opacity:0.4;">
+      <div class="venue-num" style="text-decoration:line-through;">—</div>
+      <div class="venue-body">
+        <h3 style="text-decoration:line-through;">Idaho State Journal</h3>
+        <div class="venue-meta" style="color:#aa2020;">Removed from consideration</div>
+        <div class="venue-content">
+          <p>Prior Best Friends campaign in this market underperformed. Outstanding late payment issue creates vendor relationship risk. Removed from consideration.</p>
+        </div>
+      </div>
+      <div class="verdict skip">
+        <div class="verdict-label">Scratched</div>
+        <div class="verdict-text">Do not pursue. Prior underperformance + payment history. Slot reallocated.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 3-Stage Rollout -->
+  <hr class="divider">
+  <div class="eyebrow">Three-Stage Rollout</div>
+  <h2 class="section-title" style="font-size:clamp(22px,2.5vw,34px);">Validate, test, scale — <em>in that order.</em></h2>
+  <div class="roadmap">
+    <div class="stage">
+      <div class="stage-num">STAGE 01</div>
+      <div class="stage-name">Validate</div>
+      <div class="stage-time">Week 1 · $0 spent</div>
+      <ul>
+        <li>Call all venues — demand audited audience numbers</li>
+        <li>Build scoring sheet; reject unverified metrics</li>
+        <li>Set up CallRail numbers + promo codes (KPVI25, ZBQ25)</li>
+        <li>Confirm offer creative: 25% off or 7-day DDC trial</li>
+        <li>CM/DM align on B2B target list independently</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="stage-num">STAGE 02</div>
+      <div class="stage-name">Test</div>
+      <div class="stage-time">Weeks 2–9 · ~$1k–$2k</div>
+      <ul>
+        <li>KPVI: pet segment + 4 weekly :30s with offer (8 wk)</li>
+        <li>KZBQ: 2-station bundle + endorsement read (8 wk)</li>
+        <li>Facebook: paid geo-targeted + CM organic group presence</li>
+        <li>Observer: one sponsored article only</li>
+        <li>PVFM: trial vendor day ($60) during Sep/Oct window</li>
+        <li>Cut any channel with CAC &gt; $150 at week 8</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="stage-num">STAGE 03</div>
+      <div class="stage-name">Scale</div>
+      <div class="stage-time">Week 10+ · Full budget</div>
+      <ul>
+        <li>13-week renewal on winning channels (20–35% off)</li>
+        <li>ISU Bengals creative activation — fall football</li>
+        <li>PVFM full season membership if trial converts</li>
+        <li>Multi-service trial offer in all creative</li>
+        <li>B2B referral packages active — CM/DM driving volume</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 5 · B2B TRACK -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-b2b" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 5 of 6 · B2B Partnership Track</div>
+  <h2 class="section-title">Long-term referral volume, <em>zero media spend.</em></h2>
+  <p class="section-deck">Led by Chris (CM) and DM. Runs entirely on relationship-building time. Marketing supports with tools, playbooks, and tracking infrastructure — but does not own execution.</p>
+
+  <div class="track-grid">
+    <div class="track-card track-paid">
+      <span class="eyebrow-white">Track 01 · Paid Media</span>
+      <h3>Short-Term Acquisition</h3>
+      <div class="track-item">
+        <div class="track-detail-label">Goal</div>
+        <div class="track-detail-val">Drive new customers now via KPVI, KZBQ, and Meta</div>
+      </div>
+      <div class="track-item">
+        <div class="track-detail-label">Owner</div>
+        <div class="track-detail-val">Tucker — Marketing</div>
+      </div>
+      <div class="track-item">
+        <div class="track-detail-label">Budget</div>
+        <div class="track-detail-val">$2,000 – $6,000 (annual, front-loaded Jun–Aug)</div>
+      </div>
+      <div class="track-inset">
+        <strong>Active Offers</strong>
+        25% off first visit · 7 days free DDC trial (first 30 days)
+      </div>
+    </div>
+    <div class="track-card track-b2b">
+      <span class="eyebrow-white">Track 02 · B2B Partnerships</span>
+      <h3>Long-Term Referral Growth</h3>
+      <div class="track-item">
+        <div class="track-detail-label">Goal</div>
+        <div class="track-detail-val">Build durable referral volume through local relationships</div>
+      </div>
+      <div class="track-item">
+        <div class="track-detail-label">Lead</div>
+        <div class="track-detail-val">Chris (CM) + District Manager</div>
+      </div>
+      <div class="track-item">
+        <div class="track-detail-label">Media Cost</div>
+        <div class="track-detail-val">$0 — runs on CM/DM time</div>
+      </div>
+      <div class="track-inset">
+        <strong>Trial Path — First 30 Days</strong>
+        Boarding → Grooming → Daycare → Enrichment
+      </div>
+    </div>
+  </div>
+
+  <!-- Partner industries + cadence -->
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">Target Partner Industries</div>
+      <div style="border: 1px solid var(--rule);">
+        <div style="padding:16px 20px; border-bottom:1px solid var(--rule);">
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:10px;">Phase 1–2 Targets</div>
+          <ul class="resp-list">
+            <li>Veterinary clinics</li>
+            <li>Independent dog trainers</li>
+            <li>Independent groomers</li>
+            <li>Realtors &amp; Apartment communities (pet-friendly)</li>
+          </ul>
+        </div>
+        <div style="padding:16px 20px;">
+          <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:10px;">Expand in Phase 3</div>
+          <ul class="resp-list">
+            <li>Dog-friendly retailers and pet supply stores</li>
+            <li>Rescue and shelter organizations</li>
+            <li>Any industry currently missing from CRM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">Attribution Rule — Non-Negotiable</div>
+      <div class="walkaway" style="margin-bottom:16px;">
+        Every new customer: ask <strong>"Where did you hear about us?"</strong> → add source tag in PawConnect → add profile note → capture referring partner or customer name when applicable. DM holds CM accountable to 100% tagging discipline. Attribution data from this process is how Tucker identifies the highest-performing channels and partners.
+      </div>
+      <div class="inset">
+        <div class="inset-label">Source of Truth</div>
+        <p style="font-size:13px;">B2B Partnership CRM (provided by Tucker). All partner contacts, outreach history, referral volume, and follow-up cadence tracked here. Not in email, not in memory.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- B2B Responsibility Split -->
+  <div class="eyebrow" style="margin-bottom:16px;">Responsibility Split</div>
+  <div class="resp-split">
+    <div class="resp-col">
+      <span class="resp-col-label label-cm">CM / DM — Chris &amp; DM</span>
+      <ul class="resp-list">
+        <li>Lead all direct outreach to partner businesses — starting in Phase 1, immediately</li>
+        <li>Maintain consistent bi-weekly follow-up cadence in CRM beginning Phase 2</li>
+        <li>Track which partners are generating actual referrals</li>
+        <li>Ask every new customer for referral source — tag in PawConnect, every time</li>
+        <li>Nurture and recognize top referral partners in Phase 3</li>
+        <li>DM holds CM accountable to outreach volume and tagging discipline</li>
+      </ul>
+    </div>
+    <div class="resp-col">
+      <span class="resp-col-label label-mktg">Marketing — Tucker</span>
+      <ul class="resp-list">
+        <li>Deliver B2B Partnership CRM and lead directory before outreach begins</li>
+        <li>Provide industry-specific outreach playbooks</li>
+        <li>Launch new-customer B2B referral reward process</li>
+        <li>Update playbooks as new partner industries are identified</li>
+        <li>Ensure center has updated POS trifolds and business cards for partner distribution</li>
+        <li>Analyze attribution data to identify highest-performing partner types</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- TAB 6 · NEXT STEPS -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="tab-nextsteps" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="eyebrow">Tab 6 of 6 · Action Items · Updated Post May 8 Call with Dion</div>
+  <h2 class="section-title">This week's moves — <em>reputation first, acquisition second.</em></h2>
+  <p class="section-deck">The May 8 call with Dion reset the action list. Paid media setup and Facebook are off the immediate agenda. The first 30 days are about in-person trust repair, serving existing customers better, and building the B2B and referral infrastructure that will drive sustainable growth.</p>
+
+  <div class="grid-2" style="align-items:start;">
+
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">This Week — High Priority</div>
+      <ul class="check-list">
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Dion — in-person vet outreach (5/12 visit)</div>
+            <div class="check-desc">Go to vet clinics near the center for temperature check and relationship-opening conversations. No sales pitch — just listen and introduce. Update CRM accordingly.</div>
+          </div>
+          <span class="check-tag tag-cm">Dion</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Dion — attempt to reconnect with the previous owner</div>
+            <div class="check-desc">She has real community influence and a negative view of Best Friends. Work through Chris's existing relationship to request a conversation. Frame it as: the people who caused problems are gone, we want to make it right. This relationship, if repaired, could significantly shift community sentiment.</div>
+          </div>
+          <span class="check-tag tag-cm">Dion + Chris</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Source tracking starts Monday</div>
+            <div class="check-desc">"Where did you hear about us?" for every single new customer from this point forward. Add source tag in PawConnect, add a profile note. This is not optional — it's the data foundation for everything else.</div>
+          </div>
+          <span class="check-tag tag-cm">Chris + Team</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Tucker: Deliver B2B CRM 5/7</div>
+            <div class="check-desc">Dion needs the B2B Partnership CRM and scored lead list before his Tuesday visit. Vets and other partner categories should already be populated with Pocatello leads so Dion can evaluate in person.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Tucker: Build and deliver SMS cross-sell templates</div>
+            <div class="check-desc">Pocatello has no SMS templates built yet. Priority: grooming upsells, enrichment add-ons, bathing for daycare dogs. Targeted one-to-one style — not mass blast. These serve existing customers and grow share-of-wallet without public-facing risk.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Email PVFM market manager — secure a trial date</div>
+            <div class="check-desc">manager@portneufvalleyfarmersmarket.com — request vendor approval as a Crafter/Food Vendor. Get a trial Saturday booked. Come with a Pocatello shirt, offer cards, and giveaway items. Walk the line and talk to dog owners.</div>
+          </div>
+          <span class="check-tag tag-cm">Chris or Dion</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">Also This Week — Tucker's List</div>
+      <ul class="check-list">
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Fix website + Google Business Profile</div>
+            <div class="check-desc">Remove expired offers, fix booking links, update service pages. GBP accuracy is a digital trust signal — if it's wrong, it erodes credibility even without a campaign running.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Build lapsed-customer reactivation workflow</div>
+            <div class="check-desc">Lead with the new DDC pricing (as low as $13/day at 3x/week). These are people who already had a relationship — the right offer can bring them back. Don't wait for Mogo's system; build the automation now.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Prepare mass message to existing customers re: new DDC pricing</div>
+            <div class="check-desc">Many existing customers don't know the new competitive pricing exists. A targeted campaign to the active customer base about the restructured membership — not a public ad — is low risk and high value.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Coordinate with Jessica: POS trifolds + giveaway items for PVFM</div>
+            <div class="check-desc">Need branded items the team can hand out at the farmers market. Business cards, service overview cards, maybe a simple promo item. Something tangible people take home.</div>
+          </div>
+          <span class="check-tag tag-mktg">Tucker + Jessica</span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-title">Build simple manual customer referral program</div>
+            <div class="check-desc">Don't wait for Mogo. Put together a basic process: happy customer refers someone → referring customer gets a reward. Track manually in PawConnect. Tucker to design the mechanics; Chris to execute.</div>
+          </div>
+          <span class="check-tag tag-both">Tucker + Chris</span>
+        </li>
+      </ul>
+
+      <div class="caveat" style="margin-top:20px;">
+        <strong>Held — Do Not Activate Yet</strong>
+        Facebook paid and organic: on hold until reputation sentiment improves. KPVI and KZBQ: deferred to Phase 3 decision point at Day 30. Budget level ($2k / $4k / $6k): confirm after the next call — less relevant until paid media is re-evaluated. Idaho State Journal: permanently removed.
+      </div>
+
+      <div class="walkaway" style="margin-top:16px;">
+        <strong>Day 60 review gate:</strong> At the end of Phase 2, assess: Has community sentiment stabilized? Any new public incidents? Are B2B relationships opening? Is PVFM generating foot traffic? If yes — consider a limited KPVI test. If no — extend Phase 1 &amp; 2 approach.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Key Contacts -->
+  <hr class="divider">
+  <div class="eyebrow" style="margin-bottom:16px;">Key People</div>
+  <table class="data-table" style="border:1px solid var(--rule);">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Contact</th>
+        <th>Notes from May 8 Call</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-bold">Tucker</td><td>Marketing &amp; Operations Lead</td><td class="td-gray">—</td><td>Owns CRM, SMS templates, digital, reactivation, and B2B support tools</td></tr>
+      <tr><td class="td-bold">Dion Douglas</td><td>District Manager</td><td class="td-red td-mono" style="font-size:12px;">ddouglas@bestfriends.net</td><td>Flying to Pocatello Tuesday — doing in-person vet outreach + previous owner relationship repair</td></tr>
+      <tr><td class="td-bold">Chris</td><td>Center Manager (CM)</td><td class="td-gray">—</td><td>Local guy, longtime Pocatello resident — the right face for this community. Owns B2B outreach and PVFM presence</td></tr>
+      <tr><td class="td-bold">Jerica</td><td>Supervisor / Community Ambassador</td><td class="td-gray">—</td><td>Passionate about the community, applied for AM position, husband has local business ties — strong candidate to be a community-facing asset</td></tr>
+      <tr><td class="td-bold">Brad</td><td>Market rebuild support</td><td class="td-gray">—</td><td>Supporting alongside Dion</td></tr>
+      <tr><td class="td-bold">Maria</td><td>Leadership</td><td class="td-gray">—</td><td>Originated the assignment</td></tr>
+      <tr><td class="td-bold">Previous Owner</td><td>Former operator / community influencer</td><td class="td-gray">—</td><td>Has community influence and negative view of Best Friends. Dion to attempt relationship repair through Chris. High value if mended.</td></tr>
+      <tr><td class="td-bold">Former Managers (×2)</td><td>Active detractors</td><td class="td-gray">—</td><td>Left contentiously within last 6–8 months. Pursuing competing boarding facility license. Watch for public activity.</td></tr>
+      <tr><td class="td-bold">PVFM Manager</td><td>Farmers Market Manager</td><td class="td-red td-mono" style="font-size:12px;">manager@portneufvalleyfarmersmarket.com</td><td>Contact for vendor approval and trial day scheduling</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="display">Best Friends Pet Care · Pocatello Pet Lodge</div>
+  <div>Prepared by Tucker · Marketing &amp; Operations · Updated May 8, 2026</div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  /* ── TAB SWITCHING ── */
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ── PHASE SWITCHING ── */
+  function switchPhase(id, btn) {
+    document.querySelectorAll('.phase-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.phase-nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('phase-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ── SCENARIO DATA ── */
+  const months   = ['Jun','Jul','Aug','Sep','Oct','Nov'];
+  const baseline = [57, 51, 39, 25, 22, 29];
+
+  const scenarios = {
+    conservative: {
+      label: 'Conservative Goal',
+      spend: '$2,000',
+      spendDollars: [700, 560, 400, 200, 100, 40],
+      goals:  [59, 54, 42, 31, 32, 43],
+      color:  '#74151a',
+      drivers: [
+        'Limited paid test — PVFM + offer card',
+        'Spend tapering, B2B outreach active',
+        'Media off, referral pipeline forming',
+        'Referrals starting to contribute',
+        'B2B referrals building',
+        'B2B compounding, sustained growth'
+      ],
+    },
+    moderate: {
+      label: 'Moderate Goal',
+      spend: '$4,000',
+      spendDollars: [1400, 1120, 800, 400, 200, 80],
+      goals:  [62, 56, 45, 34, 35, 47],
+      color:  '#2e6e4a',
+      drivers: [
+        'KPVI test + targeted offer push',
+        'Frequency building, offers converting',
+        'Media tapering, B2B pipeline active',
+        'Spend winding down, referrals strong',
+        'B2B referrals accelerating',
+        'B2B + media legacy compounding'
+      ],
+    },
+    aggressive: {
+      label: 'Full Investment Goal',
+      spend: '$6,000',
+      spendDollars: [2100, 1680, 1200, 600, 300, 120],
+      goals:  [64, 59, 48, 37, 39, 51],
+      color:  '#1a3a7a',
+      drivers: [
+        'KPVI + KZBQ launch — multi-channel',
+        'Full frequency, endorsement reads live',
+        'Sustained push, B2B pipeline building',
+        'Spend tapering, referrals strong',
+        'Full B2B referral volume',
+        'Compounding growth — B2B + brand'
+      ],
+    }
+  };
+
+  let growthChart, spendChart, currentScenario = 'conservative';
+
+  function calcStats(sc) {
+    const s = scenarios[sc];
+    const totalGoal = s.goals.reduce((a, b) => a + b, 0);
+    const totalBase = baseline.reduce((a, b) => a + b, 0);
+    const lift = totalGoal - totalBase;
+    const revenue = lift * 750;
+    const totalSpend = s.spendDollars.reduce((a, b) => a + b, 0);
+    const cac = lift > 0 ? Math.round(totalSpend / lift) : 0;
+    return { lift, revenue, cac, totalSpend };
+  }
+
+  function updateCards(sc) {
+    const s = scenarios[sc];
+    const { lift, revenue, cac } = calcStats(sc);
+    document.getElementById('card-spend').textContent   = s.spend;
+    document.getElementById('card-target').textContent  = '+' + lift;
+    document.getElementById('card-revenue').textContent = '$' + revenue.toLocaleString();
+    document.getElementById('card-cac').textContent     = '$' + cac;
+  }
+
+  function updateTable(sc) {
+    const s = scenarios[sc];
+    document.getElementById('th-goal').textContent = s.label;
+    const tbody = document.getElementById('goals-tbody');
+    const tfoot = document.getElementById('goals-tfoot');
+    let rows = '';
+    months.forEach((m, i) => {
+      const lift = s.goals[i] - baseline[i];
+      const bg   = i % 2 === 0 ? 'background:#fafaf8' : 'background:#f4f2ee';
+      const sp   = s.spendDollars[i] > 0 ? `$${s.spendDollars[i].toLocaleString()}` : '—';
+      rows += `<tr style="${bg}">
+        <td style="font-weight:600;">${m} 2026</td>
+        <td class="center" style="color:#9c9c9d;">${baseline[i]}</td>
+        <td class="center" style="font-weight:700;">${s.goals[i]}</td>
+        <td class="center">
+          <span style="background:#eaf2ed; color:#2e6e4a; padding:3px 10px; font-size:11px; font-weight:700; border-radius:2px;">+${lift}</span>
+        </td>
+        <td style="font-size:12px; color:#555;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#9c9c9d; margin-right:8px;">${sp}</span>${s.drivers[i]}
+        </td>
+      </tr>`;
+    });
+    const totalBase = baseline.reduce((a, b) => a + b, 0);
+    const totalGoal = s.goals.reduce((a, b) => a + b, 0);
+    const totalLift = totalGoal - totalBase;
+    tfoot.innerHTML = `<tr style="background:#000; color:#fff;">
+      <td style="padding:12px 18px; font-weight:700; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;">6-Mo Total</td>
+      <td class="center" style="padding:12px 18px; font-weight:600;">${totalBase}</td>
+      <td class="center" style="padding:12px 18px; font-weight:800; font-size:16px;">${totalGoal}</td>
+      <td class="center" style="padding:12px 18px; font-weight:800; font-size:16px; color:#7ec8a0;">+${totalLift}</td>
+      <td style="padding:12px 18px; font-size:12px; color:#888;">${Math.round(totalLift / totalBase * 100)}% above 2025 actuals</td>
+    </tr>`;
+    tbody.innerHTML = rows;
+  }
+
+  function updateChart(sc) {
+    const s = scenarios[sc];
+    document.getElementById('legend-label').textContent = s.label;
+    if (growthChart) {
+      growthChart.data.datasets[1].data             = s.goals;
+      growthChart.data.datasets[1].borderColor      = s.color;
+      growthChart.data.datasets[1].backgroundColor  = s.color + '18';
+      growthChart.data.datasets[1].pointBackgroundColor = s.color;
+      growthChart.update();
+    }
+    if (spendChart) {
+      spendChart.data.datasets[0].data = s.spendDollars;
+      spendChart.data.datasets[0].backgroundColor = s.spendDollars.map((v, i) => {
+        const alpha = Math.max(0.15, 1 - i * 0.17);
+        return s.color + Math.round(alpha * 255).toString(16).padStart(2, '0');
+      });
+      spendChart.update();
+    }
+  }
+
+  function setScenario(sc, btn) {
+    currentScenario = sc;
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateCards(sc);
+    updateTable(sc);
+    updateChart(sc);
+  }
+
+  window.addEventListener('load', () => {
+    /* ── GROWTH LINE CHART ── */
+    const ctx = document.getElementById('growthChart').getContext('2d');
+    growthChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: months.map(m => m + ' 2026'),
+        datasets: [
+          {
+            label: '2025 Actuals',
+            data: baseline,
+            borderColor: '#c0bab0',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 5,
+            pointBackgroundColor: '#c0bab0',
+            pointBorderColor: 'white',
+            pointBorderWidth: 2,
+            tension: 0.3,
+            order: 2,
+          },
+          {
+            label: 'Projected Goal',
+            data: scenarios.conservative.goals,
+            borderColor: '#74151a',
+            backgroundColor: '#74151a18',
+            borderWidth: 3,
+            pointRadius: 6,
+            pointBackgroundColor: '#74151a',
+            pointBorderColor: 'white',
+            pointBorderWidth: 2,
+            tension: 0.3,
+            fill: '-1',
+            order: 1,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2.8,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#000',
+            titleFont: { family: "'Inter Tight', sans-serif", size: 13, weight: '600' },
+            bodyFont:  { family: "'Inter Tight', sans-serif", size: 13 },
+            padding: 14,
+            callbacks: {
+              afterBody(items) {
+                const goal = items.find(i => i.datasetIndex === 1);
+                const base = items.find(i => i.datasetIndex === 0);
+                if (goal && base) return [`  ▲ +${goal.raw - base.raw} vs. 2025 actual`];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: '#e2e0db', drawBorder: false },
+            ticks: { font: { family: "'Inter Tight', sans-serif", size: 12 }, color: '#9c9c9d' }
+          },
+          y: {
+            min: 15, max: 80,
+            grid: { color: '#e2e0db', drawBorder: false },
+            ticks: {
+              stepSize: 10,
+              font: { family: "'Inter Tight', sans-serif", size: 12 },
+              color: '#9c9c9d'
+            },
+            title: {
+              display: true,
+              text: 'New Customers',
+              font: { family: "'Inter Tight', sans-serif", size: 11 },
+              color: '#9c9c9d'
+            }
+          }
+        }
+      }
+    });
+
+    /* ── SPEND BAR CHART ── */
+    const sCtx = document.getElementById('spendChart').getContext('2d');
+    const initSpend = scenarios.conservative.spendDollars;
+    spendChart = new Chart(sCtx, {
+      type: 'bar',
+      data: {
+        labels: months.map(m => m + ' 2026'),
+        datasets: [{
+          label: 'Media Spend',
+          data: initSpend,
+          backgroundColor: initSpend.map((v, i) => {
+            const alpha = Math.max(0.15, 1 - i * 0.17);
+            return '#74151a' + Math.round(alpha * 255).toString(16).padStart(2, '0');
+          }),
+          borderRadius: 2,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 5,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#000',
+            titleFont: { family: "'Inter Tight', sans-serif", size: 12, weight: '600' },
+            bodyFont:  { family: "'Inter Tight', sans-serif", size: 12 },
+            padding: 10,
+            callbacks: { label: ctx => `  Media Spend: $${ctx.raw.toLocaleString()}` }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { font: { family: "'Inter Tight', sans-serif", size: 11 }, color: '#9c9c9d' },
+            border: { display: false }
+          },
+          y: {
+            grid: { display: false },
+            border: { display: false },
+            ticks: {
+              font: { family: "'JetBrains Mono', monospace", size: 10 },
+              color: '#9c9c9d',
+              callback: v => v === 0 ? '' : '$' + v.toLocaleString()
+            }
+          }
+        }
+      }
+    });
+
+    /* ── DIAGNOSIS YOY LINE CHART ── */
+    const allMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const past2025  = [39, 30, 47, 31, 46, 61, 50, 45, 31, 27, 31, 38];
+    const ytd2026   = [26, 40, 50, 46, null, null, null, null, null, null, null, null];
+
+    const dCtx = document.getElementById('diagnosisChart').getContext('2d');
+    new Chart(dCtx, {
+      type: 'line',
+      data: {
+        labels: allMonths,
+        datasets: [
+          {
+            label: '2025',
+            data: past2025,
+            borderColor: '#c0bab0',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 4,
+            pointBackgroundColor: '#c0bab0',
+            pointBorderColor: 'white',
+            pointBorderWidth: 2,
+            tension: 0.3,
+            spanGaps: false,
+          },
+          {
+            label: '2026 YTD',
+            data: ytd2026,
+            borderColor: '#74151a',
+            backgroundColor: '#74151a10',
+            borderWidth: 2.5,
+            pointRadius: 5,
+            pointBackgroundColor: '#74151a',
+            pointBorderColor: 'white',
+            pointBorderWidth: 2,
+            tension: 0.3,
+            fill: false,
+            spanGaps: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 3.5,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#000',
+            titleFont: { family: "'Inter Tight', sans-serif", size: 12, weight: '600' },
+            bodyFont:  { family: "'Inter Tight', sans-serif", size: 12 },
+            padding: 12,
+            callbacks: {
+              afterBody(items) {
+                const yr25 = items.find(i => i.datasetIndex === 0);
+                const yr26 = items.find(i => i.datasetIndex === 1);
+                if (yr25 && yr26 && yr26.raw !== null) {
+                  const diff = yr26.raw - yr25.raw;
+                  const pct  = Math.round(Math.abs(diff) / yr25.raw * 100);
+                  return [`  ${diff >= 0 ? '▲ +' : '▼ '}${diff} vs. 2025 (${diff >= 0 ? '+' : '-'}${pct}%)`];
+                }
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: '#e2e0db', drawBorder: false },
+            ticks: { font: { family: "'Inter Tight', sans-serif", size: 11 }, color: '#9c9c9d' }
+          },
+          y: {
+            min: 15, max: 75,
+            grid: { color: '#e2e0db', drawBorder: false },
+            ticks: {
+              stepSize: 10,
+              font: { family: "'Inter Tight', sans-serif", size: 11 },
+              color: '#9c9c9d'
+            },
+            title: {
+              display: true,
+              text: 'New Customers',
+              font: { family: "'Inter Tight', sans-serif", size: 10 },
+              color: '#9c9c9d'
+            }
+          }
+        }
+      }
+    });
+
+    setScenario('conservative', document.getElementById('sbtn-conservative'));
+  });
+</script>
+</body>
+</html>
