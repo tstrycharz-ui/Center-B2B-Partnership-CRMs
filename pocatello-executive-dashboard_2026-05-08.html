@@ -615,6 +615,24 @@
     border-radius: 2px;
     flex-shrink: 0;
     margin-top: 1px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    position: relative;
+  }
+  .check-box:hover { border-color: var(--accent); }
+  .check-box.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .check-box.checked::after {
+    content: '';
+    position: absolute;
+    left: 3px; top: 0px;
+    width: 5px; height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
   }
   .check-content { flex: 1; }
   .check-title { font-weight: 600; margin-bottom: 3px; }
@@ -1489,13 +1507,13 @@
 <div class="panel-inner">
 
   <div class="eyebrow">Tab 6 of 6 · Action Items · Updated Post May 8 Call with Dion</div>
-  <h2 class="section-title">This week's moves — <em>reputation first, acquisition second.</em></h2>
+  <h2 class="section-title">Next 30 days — <em>reputation first, acquisition second.</em></h2>
   <p class="section-deck">The May 8 call with Dion reset the action list. Paid media setup and Facebook are off the immediate agenda. The first 30 days are about in-person trust repair, serving existing customers better, and building the B2B and referral infrastructure that will drive sustainable growth.</p>
 
   <div class="grid-2" style="align-items:start;">
 
     <div>
-      <div class="eyebrow" style="margin-bottom:16px;">This Week — High Priority</div>
+      <div class="eyebrow" style="margin-bottom:16px;">Next 30 Days — CM / DM Priority</div>
       <ul class="check-list">
         <li>
           <div class="check-box"></div>
@@ -1549,7 +1567,7 @@
     </div>
 
     <div>
-      <div class="eyebrow" style="margin-bottom:16px;">Also This Week — Tucker's List</div>
+      <div class="eyebrow" style="margin-bottom:16px;">Next 30 Days — Tucker's List</div>
       <ul class="check-list">
         <li>
           <div class="check-box"></div>
@@ -2019,6 +2037,10 @@
           }
         }
       }
+    });
+
+    document.querySelectorAll('.check-box').forEach(box => {
+      box.addEventListener('click', () => box.classList.toggle('checked'));
     });
 
     setScenario('conservative', document.getElementById('sbtn-conservative'));
